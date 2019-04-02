@@ -917,14 +917,16 @@ a.w3_agile_vimeo:hover{
     display: block;
     width: 100%;
 }
-
+.login-form-grids input[type="text"]{
+    margin-bottom:1em;
+}
 .login-form-grids input[type="password"]{
 	margin:1em 0 0;
 }
 .forgot {
     margin: 1.5em 0 0;
 }
-.login-form-grids input[type="submit"]{
+.login-form-grids input[type="button"]{
 	outline: none;
     border: none;
     padding: 10px 0;
@@ -935,7 +937,7 @@ a.w3_agile_vimeo:hover{
     background:#3399cc;
     margin: 1.5em 0 0;
 }
-.login-form-grids input[type="submit"]:hover{
+.login-form-grids input[type="button"]:hover{
 	background:#fe9126;
 }
 .login-form-grids ::-webkit-input-placeholder{

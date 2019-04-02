@@ -221,8 +221,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<input type="text" placeholder="请再次输入账号" required=" " >
 				</form> -->
 				<h6>请填写注册信息</h6>
-					<form action="#" method="post">
-					<input type="email" placeholder="账号" required=" " >
+					<form action="#" method="post" id='registerdForm'>
+					<input type="text" placeholder="用户名" required=" " >
+					<input type="email" placeholder="邮箱" required=" " >
 					<input type="password" placeholder="密码" required=" " >
 					<input type="password" placeholder="重复输入密码" required=" " >
 					<div class="register-check-box">
@@ -230,7 +231,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<label class="checkbox"><input type="checkbox" name="checkbox"><i> </i>我接受条款和条件</label>
 						</div>
 					</div>
-					<input type="submit" value="登录">
+					<input type="button" value="确认注册">
 				</form>
 			</div>
 			<div class="register-home">
@@ -350,6 +351,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		});
 </script>	
 <!-- //main slider-banner --> 
-
+//注册
+<script type="text/javascript">
+	$('#registerdForm input[type='button']').click(function(){
+		$.ajax()
+	})
+</script>
 </body>
 </html>
