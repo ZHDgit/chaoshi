@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <script src="../js/jquery-1.11.1.min.js" type="text/javascript"></script>
+
+</head>
+<body>
+    <div class="header clearfix">
+        <h1>社区便利小超市管理台</h1>
+        <div class="user">
+            <p>张大大<a href="">退出</a></p>
+        </div>
+    </div>
+    <div class="main">
+        <ul class="list-side">
+            　　<li class="active"><a target="user.html" >用户管理</a></li>
+            　　<li><a target="commodity.html" >商品管理</a></li>
+            　　<li><a target="passWord.html" >修改密码</a></li>
+        </ul>
+    </div>
+    <div id="iframe">
+        　　
+    </div>
+    <div style="clear: both;"></div>
+    <div class="footer">
+
+    </div>
+    <script>
+        $(document).ready(function(){
+            $.get("user.html",function(data){ //初始將a.html include div#iframe
+                $("#iframe").html(data);
+            });
+            $(function(){
+                $('.list-side li').click(function(){
+                    //添加active
+
+                    // 找出 li 中的超链接 href(#id)
+                    var $this = $(this),
+                        _clickTab = $this.find('a').attr('target'); // 找到链接a中的targer的值
+                    $.get(_clickTab,function(data){
+                        $("#iframe").html(data);
+                    });
+                    $(this).addClass('active').siblings().removeClass('active');
+                })
+            });
+         });
+    </script>
+    <script  type="text/javascript" src="./js/index.js"></script>
+</body>
+</html>

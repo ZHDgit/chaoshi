@@ -1,0 +1,58 @@
+.header{
+    padding: 12px 0;
+    background: #333;
+}
+.header h1{
+    color: #fff;
+    font-size: 1.2em;
+    height: 40px;
+    line-height: 40px;
+    float: left;
+}
+.user{
+    float: right;
+    color: #1da1f2;
+}
+.user p{
+    color: blue;
+    font-size: 1.2em;
+    float: left;
+   line-height: 40px;
+    margin-right: 40px;
+    color: #ff6600;
+}
+.user p a{
+    margin-left: 20px;
+    color: #fff;
+}
+.main{
+    width: 8em;
+    height: 30em;
+    border-right: 2px solid #ccc;
+    text-align: center;
+    float: left;
+}
+.main li{
+    width: 100%;
+    font-size: 1em;
+    cursor: pointer;
+    height: 3em;
+    line-height: 3em;
+    box-sizing: border-box;
+}
+.main li:hover{
+    background: #999;
+    border-bottom: 2px solid #ff6600;
+}
+#iframe{
+    padding:20px;
+    float: left;
+    width:84em;
+    height:28em;
+    border:1px solid #333;
+}
+.active{
+    background: #999;
+    border-bottom: 2px solid #ff6600;
+    color:#fff;
+}
