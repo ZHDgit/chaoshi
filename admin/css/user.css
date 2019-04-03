@@ -1,0 +1,24 @@
+th{
+    width: 10%;
+    height: 3em;
+}
+td{
+    width: 10%;
+    text-align: center;
+    height: 2em;
+}
+tr:nth-child(2n - 1){
+    background: #ededed;
+}
+form{
+    width: 100%;
+}
+.userTable span{
+    cursor: pointer;
+}
+.userTable .editSpan{
+    color: blue;
+}
+.userTable .deleteSpan{
+    color: red;
+}

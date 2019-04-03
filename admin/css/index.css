@@ -2,6 +2,8 @@
     padding: 12px 0;
     background: #333;
 }
+.center{
+}
 .header h1{
     color: #fff;
     font-size: 1.2em;
@@ -26,19 +28,28 @@
     color: #fff;
 }
 .main{
-    width: 8em;
+    width: 10%;
     height: 30em;
-    border-right: 2px solid #ccc;
+    margin-top: 20px;
     text-align: center;
     float: left;
 }
+.main ul{
+    font-size: 0;
+
+    border-right: 2px solid #ccc;
+}
 .main li{
+    font-size: 16px;
     width: 100%;
-    font-size: 1em;
     cursor: pointer;
     height: 3em;
     line-height: 3em;
     box-sizing: border-box;
+    margin-top: 20px;
+}
+.main li:nth-child(1){
+    margin-top: 0;
 }
 .main li:hover{
     background: #999;
@@ -47,9 +58,8 @@
 #iframe{
     padding:20px;
     float: left;
-    width:84em;
+    width:86%;
     height:28em;
-    border:1px solid #333;
 }
 .active{
     background: #999;

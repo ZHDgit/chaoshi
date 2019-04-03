@@ -3,30 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <style>
-        th{
-            width: 10%;
-            height: 3em;
-        }
-        td{
-            width: 10%;
-            text-align: center;
-            height: 2em;
-        }
-        tr:nth-child(2n - 1){
-            background: #ededed;
-        }
-        form{
-            width: 100%;
-        }
-    </style>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="./css/user.css">
     <script type="text/javascript" src="../js/jquery-1.11.1.min.js"></script>
     <script type="text/javascript" src="../layer/layer.js"></script>
 </head>
 <body>
     <div>
         <form action="" id="userFrom">
-            <table>
+            <table class="userTable">
                 <tr>
                     <th>用户名</th>
                     <th>联系方式</th>
@@ -38,8 +23,8 @@
                     <td>123456789</td>
                     <td>fuhzoujiangshdif123</td>
                     <td>
-                        <p href="">编辑</p>
-                        <span>删除</span>
+                        <span class="editSpan">编辑</span>
+                        <span class="deleteSpan">删除</span>
                     </td>
                 </tr>
                 <tr>
@@ -47,8 +32,8 @@
                     <td>123456789</td>
                     <td>fuhzoujiangshdif123</td>
                     <td>
-                        <a href="">编辑</a>
-                        <span>删除</span>
+                        <span class="editSpan">编辑</span>
+                        <span class="deleteSpan">删除</span>
                     </td>
                 </tr>
                 <tr>
@@ -56,8 +41,8 @@
                     <td>123456789</td>
                     <td>fuhzoujiangshdif123</td>
                     <td>
-                        <a href="">编辑</a>
-                        <span>删除</span>
+                        <span class="editSpan">编辑</span>
+                        <span class="deleteSpan">删除</span>
                     </td>
                 </tr>
                 <tr>
@@ -65,10 +50,11 @@
                     <td>123456789</td>
                     <td>fuhzoujiangshdif123</td>
                     <td>
-                        <a href="">编辑</a>
-                        <span>删除</span>
+                        <span class="editSpan">编辑</span>
+                        <span class="deleteSpan">删除</span>
                     </td>
                 </tr>
+
             </table>
         </form>
         <div id="layer">
