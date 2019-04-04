@@ -57,25 +57,36 @@
 
             </table>
         </form>
-        <div id="layer">
+        <div id="userEdit" class="userEdit">
+            <h1>编辑用户信息</h1>
             <form action="">
-                <table>
+                <table class="userEditTable">
                     <tr>
                         <th>用户名</th>
                         <td>
-                            <input type="text">
+                            <input type="text" value="zhnfgdada">
                         </td>
                     </tr>
                     <tr>
+
                         <th>联系方式</th>
                         <td>
-                            <input type="text">
+                            <input type="text" value="123456789">
                         </td>
                     </tr>
                     <tr>
                         <th>收货地址</th>
+
                         <td>
-                            <input type="text">
+                            <input type="text" value="asjdfkljasdlfjafksdkjf;asd">
+                        </td>
+                    </tr>
+                </table>
+                <table>
+                    <tr>
+                        <td>
+                            <span style="margin-left: 200px" class="layui-layer-close editTableSpan">返回</span>
+                            <span class="editTableSpan">确定</span>
                         </td>
                     </tr>
                 </table>
@@ -84,18 +95,19 @@
     </div>
 </body>
 <script>
-    $('#userFrom p').click(function () {
+    $('#userFrom .editSpan').click(function () {
         layer.open({
             type: 1,
             shade: 0.5,
             title: false, //不显示标题
+            anim:1,
             area: ['670px', '408px'],
-            content: $('#layer'), //捕获的元素，注意：最好该指定的元素要存放在body最外层，否则可能被其它的相对元素所影响
+            content: $('#userEdit'), //捕获的元素，注意：最好该指定的元素要存放在body最外层，否则可能被其它的相对元素所影响
             cancel: function() {
 
             }
         });
     });
-    $('#layer').hide();
+    $('#userEdit').hide();
 </script>
 </html>
