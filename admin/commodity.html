@@ -3,10 +3,174 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="css/form.css">
+    <script type="text/javascript" src="../js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="../layer/layer.js"></script>
 </head>
 <body>
-    <div>
-        这个是商品管理
+<div>
+    <form action="" id="commodityFrom">
+        <table class="table">
+            <tr>
+                <th>商品名称</th>
+                <th>价格（元）</th>
+                <th>数量</th>
+                <th>管理</th>
+            </tr>
+            <tr>
+                <td>zhangdada</td>
+                <td>123456789</td>
+                <td>fuhzoujiangshdif123</td>
+                <td>
+                    <span class="editSpan">编辑</span>
+                    <span class="deleteSpan">删除</span>
+                </td>
+            </tr>
+            <tr>
+                <td>zhangdada</td>
+                <td>123456789</td>
+                <td>fuhzoujiangshdif123</td>
+                <td>
+                    <span class="editSpan">编辑</span>
+                    <span class="deleteSpan">删除</span>
+                </td>
+            </tr>
+            <tr>
+                <td>zhangdada</td>
+                <td>123456789</td>
+                <td>fuhzoujiangshdif123</td>
+                <td>
+                    <span class="editSpan">编辑</span>
+                    <span class="deleteSpan">删除</span>
+                </td>
+            </tr>
+            <tr>
+                <td>zhangdada</td>
+                <td>123456789</td>
+                <td>fuhzoujiangshdif123</td>
+                <td>
+                    <span class="editSpan">编辑</span>
+                    <span class="deleteSpan">删除</span>
+                </td>
+            </tr>
+            <tr>
+                <td>zhangdada</td>
+                <td>123456789</td>
+                <td>fuhzoujiangshdif123</td>
+                <td>
+                    <span class="editSpan">编辑</span>
+                    <span class="deleteSpan">删除</span>
+                </td>
+            </tr>
+            <tr>
+                <td>zhangdada</td>
+                <td>123456789</td>
+                <td>fuhzoujiangshdif123</td>
+                <td>
+                    <span class="editSpan">编辑</span>
+                    <span class="deleteSpan">删除</span>
+                </td>
+            </tr>
+            <tr>
+                <td>zhangdada</td>
+                <td>123456789</td>
+                <td>fuhzoujiangshdif123</td>
+                <td>
+                    <span class="editSpan">编辑</span>
+                    <span class="deleteSpan">删除</span>
+                </td>
+            </tr>
+            <tr>
+                <td>zhangdada</td>
+                <td>123456789</td>
+                <td>fuhzoujiangshdif123</td>
+                <td>
+                    <span class="editSpan">编辑</span>
+                    <span class="deleteSpan">删除</span>
+                </td>
+            </tr>
+            <tr>
+                <td>zhangdada</td>
+                <td>123456789</td>
+                <td>fuhzoujiangshdif123</td>
+                <td>
+                    <span class="editSpan">编辑</span>
+                    <span class="deleteSpan">删除</span>
+                </td>
+            </tr>
+            <tr>
+                <td>zhangdada</td>
+                <td>123456789</td>
+                <td>fuhzoujiangshdif123</td>
+                <td>
+                    <span class="editSpan">编辑</span>
+                    <span class="deleteSpan">删除</span>
+                </td>
+            </tr>
+
+        </table>
+    </form>
+    <div id="commodityEdit" class="userEdit EditDiv">
+        <h1>编辑用户信息</h1>
+        <form action="">
+            <table class="EditTable">
+                <tr>
+                    <th>商品名称</th>
+                    <td>
+                        <input type="text" value="zhnfgdada">
+                    </td>
+                </tr>
+                <tr>
+
+                    <th>价格（元）</th>
+                    <td>
+                        <input type="text" value="123456789">
+                    </td>
+                </tr>
+                <tr>
+                    <th>数量</th>
+
+                    <td>
+                        <input type="text" value="asjdfkljasdlfjafksdkjf;asd">
+                    </td>
+                </tr>
+                <tr>
+                    <th>图片</th>
+
+                    <td>
+                        <input type="text" value="asjdfkljasdlfjafksdkjf;asd">
+                    </td>
+                </tr>
+            </table>
+            <table>
+                <tr>
+                    <td>
+                        <span style="margin-left: 360px" class="layui-layer-close editTableSpan">返回</span>
+                        <span class="editTableSpan">确定</span>
+                    </td>
+                </tr>
+            </table>
+        </form>
     </div>
+</div>
 </body>
+<script>
+    $('#commodityFrom .editSpan').click(function () {
+        layer.open({
+            type: 1,
+            shade: 0.5,
+            title: false, //不显示标题
+            anim:1,
+            area: ['670px', '408px'],
+            content: $('#commodityEdit'), //捕获的元素，注意：最好该指定的元素要存放在body最外层，否则可能被其它的相对元素所影响
+            cancel: function() {
+
+            }
+        });
+    });
+    $('#commodityEdit').hide();
+    //分页
+
+</script>
 </html>

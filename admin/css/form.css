@@ -7,41 +7,41 @@ td{
     text-align: center;
     height: 2em;
 }
-.userTable tr:nth-child(2n - 1){
+.table tr:nth-child(2n - 1){
     background: #ededed;
 }
 form{
     width: 100%;
 }
-.userTable span{
+.table span{
     cursor: pointer;
 }
-.userTable .editSpan{
+.table .editSpan{
     color: blue;
 }
-.userTable .deleteSpan{
+.table .deleteSpan{
     color: red;
 }
-.userEditTable {
+.EditTable {
     margin: 40px 20px 40px 70px;
 }
-.userEditTable tr{
+.EditTable tr{
     height: 60px;
 }
-.userEditTable th{
+.EditTable th{
     width: 5%;
 }
-.userEditTable td{
+.EditTable td{
     text-align: left;
 }
-.userEditTable input{
+.EditTable input{
     border: 0;
     width: 400px;
     height: 30px;
     border-radius: 4px;
     border: 1px solid cornflowerblue;
 }
-.userEdit h1{
+.EditDiv h1{
     height: 40px;
     background: #333;
     color: #fff;
@@ -55,5 +55,8 @@ form{
     line-height: 30px;
     border-radius: 8px;
     color: #fff;
-    margin-left: 360px;
+    margin-left: 200px;
+}
+.passwordTable{
+
 }
