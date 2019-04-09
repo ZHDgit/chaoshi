@@ -47,7 +47,7 @@
 			});
 			
 			//确定的点击事件
-			this.htmlDoms.code_btn.on('click', function() {
+			this.htmlDoms.code_btn.on('blur', function() {
 				_this.checkCode();
 			})
 			
@@ -55,7 +55,7 @@
     	
     	//加载页面
     	loadDom : function() {
-    		var panelHtml = '<div class="cerify-code-panel"><div class="verify-code"></div><div class="verify-code-area"><div class="verify-input-area"><input type="text" class="varify-input-code" /></div><div class="verify-change-area"><a class="verify-change-code">换一张</a></div></div></div>';
+    		var panelHtml = '<div class="cerify-code-panel"><div class="verify-code"></div><div class="verify-code-area"><div class="verify-input-area"><input type="text" placeholder="输入验证码" class="varify-input-code" id="check-btn" /></div></div></div>';
         	this.$element.append(panelHtml);
         	
         	this.htmlDoms = {

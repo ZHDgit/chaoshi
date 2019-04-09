@@ -12,9 +12,13 @@
 <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
 <!-- font-awesome icons -->
 <link href="css/font-awesome.css" rel="stylesheet">
+<!--验证码-->
+<link rel="stylesheet" type="text/css" href="./yanzhengma/css/verify.css">
 <!-- //font-awesome icons -->
 <!-- js -->
 <script src="js/jquery-1.11.1.min.js"></script>
+<!--验证码-->
+<script type="text/javascript" src="./yanzhengma/js/verify.js" ></script>
 <!-- //js -->
 <!-- start-smoth-scrolling -->
 <script type="text/javascript" src="js/move-top.js"></script>
@@ -200,9 +204,7 @@
 				<form>
 					<input type="email" placeholder="输入账号" required=" " >
 					<input type="password" placeholder="输入密码" required=" " >
-					<div class="forgot">
-						<!-- <a href="#">Forgot Password?</a> -->
-					</div>
+					<div id="verification"></div>
 					<input type="button" value="登录">
 				</form>
 			</div>
@@ -323,6 +325,23 @@
 			  $('#responsive_wrapper').width(jQuery(this).val());
 			});
 
+		});
+		//验证码
+		$('#verification').codeVerify({
+			type : 1,
+			width : '400px',
+			height : '50px',
+			fontSize : '30px',
+			codeLength : 6,
+			btnId : 'check-btn',
+			ready : function() {
+			},
+			success : function() {
+				alert('验证匹配！');
+			},
+			error : function() {
+				alert('验证码不匹配！');
+			}
 		});
 </script>
 <!-- //main slider-banner -->

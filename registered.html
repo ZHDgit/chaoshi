@@ -14,10 +14,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
 <!-- font-awesome icons -->
 <link href="css/font-awesome.css" rel="stylesheet">
+<!--验证码-->
+<link rel="stylesheet" type="text/css" href="./yanzhengma/css/verify.css">
 <!-- //font-awesome icons -->
 <!-- js -->
 <script src="js/jquery-1.11.1.min.js"></script>
-<!-- //js -->
+<!--验证码-->
+<script type="text/javascript" src="./yanzhengma/js/verify.js" ></script>
 <!-- start-smoth-scrolling -->
 <script type="text/javascript" src="js/move-top.js"></script>
 <script type="text/javascript" src="js/easing.js"></script>
@@ -210,6 +213,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<input type="email" placeholder="邮箱" required=" " >
 					<input type="password" placeholder="密码" required=" " >
 					<input type="password" placeholder="重复输入密码" required=" " >
+					<div id="verification"></div>
 					<div class="register-check-box">
 						<div class="check">
 							<label class="checkbox"><input type="checkbox" name="checkbox"><i> </i>我接受条款和条件</label>
@@ -337,9 +341,24 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- //main slider-banner -->
 //注册
 <script type="text/javascript">
-	$('#registerdForm input[type='button']').click(function(){
-		$.ajax()
-	})
+	//验证码
+	$('#verification').codeVerify({
+		type : 1,
+		width : '400px',
+		height : '50px',
+		fontSize : '30px',
+		codeLength : 6,
+		btnId : 'check-btn',
+		ready : function() {
+		},
+		success : function() {
+			alert('验证匹配！');
+		},
+		error : function() {
+			alert('验证码不匹配！');
+		}
+	});
+
 </script>
 </body>
 </html>
