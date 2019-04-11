@@ -14,6 +14,7 @@
 <link href="css/font-awesome.css" rel="stylesheet">
 <!--验证码-->
 <link rel="stylesheet" type="text/css" href="./yanzhengma/css/verify.css">
+
 <!-- //font-awesome icons -->
 <!-- js -->
 <script src="js/jquery-1.11.1.min.js"></script>
@@ -22,6 +23,7 @@
 <script type="text/javascript" src="./yanzhengma/js/verify.js" ></script>
 <!-- //js -->
 <script type="text/javascript" src="./layer/layer.js"></script>
+<script type="text/javascript" src="./js/jqueryForm.js"></script>
 <!-- start-smoth-scrolling -->
 <script type="text/javascript" src="js/move-top.js"></script>
 <script type="text/javascript" src="js/easing.js"></script>
@@ -202,8 +204,9 @@
 		<div class="container">
 			<h2>欢迎登录</h2>
 			<div class="login-form-grids animated wow slideInUp" data-wow-delay=".5s">
-				<form>
-					<input type="email" placeholder="输入账号" required=" " id="name">
+				<form id="loginForm">
+					<input type="email" placeholder="输入账号" required=" " id="name"
+						   datatype="s5-16" errormsg="昵称至少5个字符,最多16个字符！">
 					<input type="password" placeholder="输入密码" required=" " id="passWord">
 					<div id="verification"></div>
 					<input type="button" value="登录" id="loginBtn" disabled="disabled">
@@ -320,6 +323,7 @@
 <link href="css/skdslider.css" rel="stylesheet">
 <script type="text/javascript">
 		jQuery(document).ready(function(){
+			$("#loginForm").Validform();
 			jQuery('#demo1').skdslider({'delay':5000, 'animationSpeed': 2000,'showNextPrev':true,'showPlayButton':true,'autoSlide':true,'animationType':'fading'});
 
 			jQuery('#responsive').change(function(){
@@ -342,36 +346,44 @@
 				$('#loginBtn').addClass('hoverBtn');
 				$('#loginBtn').css('background','#3399cc');
 				$('#loginBtn').click(function () {
-					let name = $('#name').val();
-					let password = $('#passWord').val();
-					$.ajax({
-						url:'http://192.168.1.109:8082/user/userLogin/'+name+'/'+password+'',
-						type:"POST",
-						data:{
-							userName:name,
-							userPassword:password
-						},
-						success:function(data){
-							if(data.code === 0){
-								layer.msg('登录成功');
-								$.cookie('userName', name, { expires: 7 });
-								location.href = 'index.html';
-							}else{
-								layer.msg(data.message);
-							}
-						},
-					})
-
+					loginForm();
 				})
 			},
 			error : function() {
 				$('#loginBtn').attr('disabled',true);
 				$('#loginBtn').removeClass('hoverBtn');
 				$('#loginBtn').css('background','#ccc');
-				alert('验证码不匹配！');
+				layer.msg('验证码不匹配！');
 			}
 		});
+		//登录表单提交
+	function loginForm(){
+		let name = $('#name').val();
+		let password = $('#passWord').val();
+		$.ajax({
+			url:'http://192.168.1.109:8082/user/userLogin/'+name+'/'+password+'',
+			type:"POST",
+			data:{
+				userName:name,
+				userPassword:password
+			},
+			success:function(data){
+				if(data.code === 0){
+					layer.msg('登录成功');
+					$.cookie('userName', name, { expires: 7 });
+					setTimeout(function getTest(){
+						location.href = 'index.html';
+					},1500);
 
+				}else{
+					layer.msg(data.message);
+					$('#loginBtn').attr('disabled',true);
+					$('#loginBtn').removeClass('hoverBtn');
+					$('#loginBtn').css('background','#ccc');
+				}
+			},
+		})
+	}
 </script>
 <!-- //main slider-banner -->
 

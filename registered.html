@@ -340,7 +340,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		});
 </script>
 <!-- //main slider-banner -->
-//注册
 <script type="text/javascript">
 	//验证码
 	$('#verification').codeVerify({
@@ -357,36 +356,39 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			$('#registerBtn').addClass('hoverBtn');
 			$('#registerBtn').css('background','#3399cc');
 			$('#registerBtn').click(function () {
-				let name = $('#registerdForm input').eq(0).val();
-				let email = $('#registerdForm input').eq(1).val();
-				let password = $('#registerdForm input').eq(2).val();
-				$.ajax({
-					url:'http://192.168.1.109:8082/user/addUser/'+name+'/'+email+'/'+password+'',
-					type:"POST",
-					data:{
-						userName:name,
-						userEmail:email,
-						userPassword:password
-					},
-					success:function(data){
-						if(data.code === 0){
-							layer.msg(data.message);
-							location.href = 'login.html';
-						}else{
-							layer.msg(data.message);
-						}
-					},
-				})
+				registerForm();
 			});
 		},
 		error : function() {
 			$('#registerBtn').attr('disabled',true);
 			$('#registerBtn').removeClass('hoverBtn');
 			$('#registerBtn').css('background','#ccc');
-			alert('验证码不匹配！');
+			layer.msg('验证码不匹配！');
 		}
 	});
-
+	//注册提交
+	function registerForm() {
+		let name = $('#registerdForm input').eq(0).val();
+		let email = $('#registerdForm input').eq(1).val();
+		let password = $('#registerdForm input').eq(2).val();
+		$.ajax({
+			url:'http://192.168.1.109:8082/user/addUser/'+name+'/'+email+'/'+password+'',
+			type:"POST",
+			data:{
+				userName:name,
+				userEmail:email,
+				userPassword:password
+			},
+			success:function(data){
+				if(data.code === 0){
+					layer.msg(data.message);
+					location.href = 'login.html';
+				}else{
+					layer.msg(data.message);
+				}
+			},
+		})
+	}
 </script>
 </body>
 </html>
