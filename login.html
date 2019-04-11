@@ -342,8 +342,24 @@
 				$('#loginBtn').css('background','#3399cc');
 				$('#loginBtn').click(function () {
 					let name = $('#name').val();
-					$.cookie('userName', name, { expires: 7 });
-					location.href = 'index.html';
+					let password = $('#passWord').val();
+					$.ajax({
+						url:'http://192.168.1.109:8082/user/userLogin/'+name+'/'+password+'',
+						type:"POST",
+						data:{
+							userName:name,
+							userPassword:password
+						},
+						success:function(data){
+							if(data.code === 0){
+								$.cookie('userName', name, { expires: 7 });
+								location.href = 'index.html';
+							}else{
+								alert(data.message);
+							}
+						},
+					})
+
 				})
 			},
 			error : function() {
