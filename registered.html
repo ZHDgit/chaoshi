@@ -21,6 +21,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="js/jquery-1.11.1.min.js"></script>
 <!--验证码-->
 <script type="text/javascript" src="./yanzhengma/js/verify.js" ></script>
+<script type="text/javascript" src="./layer/layer.js"></script>
 <!-- start-smoth-scrolling -->
 <script type="text/javascript" src="js/move-top.js"></script>
 <script type="text/javascript" src="js/easing.js"></script>
@@ -369,10 +370,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					},
 					success:function(data){
 						if(data.code === 0){
-							alert(data.message);
+							layer.msg(data.message);
 							location.href = 'login.html';
 						}else{
-							alert(data.message);
+							layer.msg(data.message);
 						}
 					},
 				})
