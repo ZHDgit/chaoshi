@@ -45,18 +45,32 @@
             background: transparent;
             border: none;
         }
+        .loginUserName strong{
+            font-size: 1em;
+            text-transform: capitalize;
+            color: blue;
+            text-decoration: none;
+        }
+        .loginUserName span{
+            margin-left: 10px;
+            font-size: 1em;
+            text-transform: capitalize;
+            color: red !important;
+            text-decoration: none;
+        }
     </style>
     <script type="text/javascript" src="./js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="./js/jqueryCookie/jquery.cookie.js"></script>
 </head>
 <body>
     <div class="agileits_header">
     <div class="container">
         <div class="agile-login">
             <ul>
-                <li class="registered"><span>注册</span></li>
                 <li class="login"><span>登录</span></li>
+                <li class="loginUserName" style="display: none"><strong></strong><span>退出</span></li>>
+                <li class="registered"><span>注册</span></li>
                 <li class="contact"><span>帮助</span></li>
-
             </ul>
         </div>
         <div class="product_list_header">
@@ -79,6 +93,18 @@
         $('.contact').click(function () {
             top.location.href='contact.html';
         })
+        if($.cookie('userName')!='null'&&$.cookie('userName')!=undefined){
+            console.log($.cookie('userName'));
+            $('.loginUserName').show();
+           $('.loginUserName strong').text($.cookie('userName'));
+           $('.login').hide();
+        }
+        $('.loginUserName span').click(function () {
+            $.cookie('userName','',{ expires: -1 });
+            $('.loginUserName').hide();
+            $('.login').show();
+        })
+
     </script>
 </body>
 </html>

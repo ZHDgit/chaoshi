@@ -934,11 +934,11 @@ a.w3_agile_vimeo:hover{
     color: #fff;
     display: block;
     width: 100%;
-    background:#3399cc;
+    background:#ccc;
     margin: 1.5em 0 0;
 }
-.login-form-grids input[type="button"]:hover{
-	background:#fe9126;
+.hoverBtn:hover{
+	background:#fe9126 !important;
 }
 .login-form-grids ::-webkit-input-placeholder{
 	color:#999;

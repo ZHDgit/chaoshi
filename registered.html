@@ -219,7 +219,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<label class="checkbox"><input type="checkbox" name="checkbox"><i> </i>我接受条款和条件</label>
 						</div>
 					</div>
-					<input type="button" value="确认注册">
+					<input type="button" value="确认注册" id="registerBtn" disabled="disabled">
 				</form>
 			</div>
 			<div class="register-home">
@@ -352,9 +352,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		ready : function() {
 		},
 		success : function() {
-			alert('验证匹配！');
+			$('#registerBtn').attr('disabled',false);
+			$('#registerBtn').addClass('hoverBtn');
+			$('#registerBtn').css('background','#3399cc');
 		},
 		error : function() {
+			$('#registerBtn').attr('disabled',true);
+			$('#registerBtn').removeClass('hoverBtn');
+			$('#registerBtn').css('background','#ccc');
 			alert('验证码不匹配！');
 		}
 	});

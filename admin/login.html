@@ -14,6 +14,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <link href="../css/style.css" rel="stylesheet" type="text/css" media="all" />
     <!-- font-awesome icons -->
     <link href="../css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="../yanzhengma/css/verify.css">
     <!-- //font-awesome icons -->
     <!-- js -->
     <script src="../js/jquery-1.11.1.min.js"></script>
@@ -21,6 +22,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!-- start-smoth-scrolling -->
     <script type="text/javascript" src="../js/move-top.js"></script>
     <script type="text/javascript" src="../js/easing.js"></script>
+    <!--验证码-->
+    <script type="text/javascript" src="../yanzhengma/js/verify.js" ></script>
     <script type="text/javascript">
         jQuery(document).ready(function($) {
             $(".scroll").click(function(event){
@@ -51,14 +54,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <form>
                 <input type="email" placeholder="输入账号" required=" " >
                 <input type="password" placeholder="输入密码" required=" " >
-                <div class="forgot">
-                    <!-- <a href="#">Forgot Password?</a> -->
-                </div>
-                <input type="button" value="登录">
+                <div id="verification"></div>
+                <input type="button" value="登录" id="loginBtn" disabled="disabled">
             </form>
         </div>
-        <h4>用户，欢迎您</h4>
-        <p><a href="../index.html">返回</a> --- <a href="../index.html">首页</a></p>
+
     </div>
 </div>
 
@@ -103,6 +103,28 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             $('#responsive_wrapper').width(jQuery(this).val());
         });
 
+    });
+    //验证码
+    $('#verification').codeVerify({
+        type : 1,
+        width : '400px',
+        height : '50px',
+        fontSize : '30px',
+        codeLength : 6,
+        btnId : 'check-btn',
+        ready : function() {
+        },
+        success : function() {
+            $('#loginBtn').attr('disabled',false);
+            $('#loginBtn').addClass('hoverBtn');
+            $('#loginBtn').css('background','#3399cc');
+        },
+        error : function() {
+            $('#loginBtn').attr('disabled',true);
+            $('#loginBtn').removeClass('hoverBtn');
+            $('#loginBtn').css('background','#ccc');
+            alert('验证码不匹配！');
+        }
     });
 </script>
 <!-- //main slider-banner -->

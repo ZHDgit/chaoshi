@@ -17,6 +17,7 @@
 <!-- //font-awesome icons -->
 <!-- js -->
 <script src="js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="./js/jqueryCookie/jquery.cookie.js"></script>
 <!--验证码-->
 <script type="text/javascript" src="./yanzhengma/js/verify.js" ></script>
 <!-- //js -->
@@ -199,13 +200,12 @@
 	<div class="login">
 		<div class="container">
 			<h2>欢迎登录</h2>
-
 			<div class="login-form-grids animated wow slideInUp" data-wow-delay=".5s">
 				<form>
-					<input type="email" placeholder="输入账号" required=" " >
-					<input type="password" placeholder="输入密码" required=" " >
+					<input type="email" placeholder="输入账号" required=" " id="name">
+					<input type="password" placeholder="输入密码" required=" " id="passWord">
 					<div id="verification"></div>
-					<input type="button" value="登录">
+					<input type="button" value="登录" id="loginBtn" disabled="disabled">
 				</form>
 			</div>
 			<h4>用户，欢迎您</h4>
@@ -337,12 +337,23 @@
 			ready : function() {
 			},
 			success : function() {
-				alert('验证匹配！');
+				$('#loginBtn').attr('disabled',false);
+				$('#loginBtn').addClass('hoverBtn');
+				$('#loginBtn').css('background','#3399cc');
+				$('#loginBtn').click(function () {
+					let name = $('#name').val();
+					$.cookie('userName', name, { expires: 7 });
+					location.href = 'index.html';
+				})
 			},
 			error : function() {
+				$('#loginBtn').attr('disabled',true);
+				$('#loginBtn').removeClass('hoverBtn');
+				$('#loginBtn').css('background','#ccc');
 				alert('验证码不匹配！');
 			}
 		});
+
 </script>
 <!-- //main slider-banner -->
 
