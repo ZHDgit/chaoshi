@@ -385,7 +385,10 @@ ul.multi-column-dropdown h6 {
 }
 /*-- cart --*/
 .product_list_header {
-    float: right;
+    position: absolute;
+    right: 0;
+    top: 4px;
+    padding-right: 180px;
 }
 .snipcart-details {
     text-align: center;
