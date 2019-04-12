@@ -18,6 +18,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- js -->
 <script src="js/jquery-1.11.1.min.js"></script>
 <!-- //js -->
+<script type="text/javascript" src="./js/jqueryCookie/jquery.cookie.js"></script>
+	<script type="text/javascript" src="./layer/layer.js"></script>
+
 <!-- start-smoth-scrolling -->
 <script type="text/javascript" src="js/move-top.js"></script>
 <script type="text/javascript" src="js/easing.js"></script>
@@ -1060,11 +1063,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				'autoSlide':true,
 				'animationType':'fading'
 			});
-
 			jQuery('#responsive').change(function(){
 			  $('#responsive_wrapper').width(jQuery(this).val());
 			});
-
+		});
+		$('.w3view-cart').click(function () {
+			if($.cookie('userName')!='null'&&$.cookie('userName')!=undefined){
+				$('.w3view-cart').attr('type','submit');
+			}else{
+				layer.msg('请登录后使用购物车！');
+				$('.w3view-cart').attr('type','button');
+			}
 		});
 </script>
 <!-- //main slider-banner -->

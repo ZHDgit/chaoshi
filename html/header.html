@@ -86,10 +86,9 @@
             top.location.href='contact.html';
         })
         if($.cookie('userName')!='null'&&$.cookie('userName')!=undefined){
-            console.log($.cookie('userName'));
             $('.loginUserName').show();
            $('.loginUserName strong').text($.cookie('userName'));
-           $('.login').hide();
+            $('.login').hide();
         }
         $('.loginUserName span').click(function () {
             $.cookie('userName','',{ expires: -1 });

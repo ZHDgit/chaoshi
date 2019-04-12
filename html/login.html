@@ -23,8 +23,8 @@
 <script type="text/javascript" src="../yanzhengma/js/verify.js" ></script>
 <!-- //js -->
 <script type="text/javascript" src="../layer/layer.js"></script>
-<script type="text/javascript" src="./js/jqueryForm.js"></script>
-<!-- start-smoth-scrolling -->
+
+	<!-- start-smoth-scrolling -->
 <script type="text/javascript" src="../js/move-top.js"></script>
 <script type="text/javascript" src="../js/easing.js"></script>
 <script type="text/javascript">
@@ -291,7 +291,7 @@
 		let name = $('#name').val();
 		let password = $('#passWord').val();
 		$.ajax({
-			url:'http://192.168.1.109:8082/user/userLogin/'+name+'/'+password+'',
+			url:''+url+'/user/userLogin/'+name+'/'+password+'',
 			type:"POST",
 			data:{
 				userName:name,
@@ -302,7 +302,7 @@
 					layer.msg('登录成功');
 					$.cookie('userName', name, { expires: 7 });
 					setTimeout(function getTest(){
-						location.href = 'index.html';
+						location.href = 'http://localhost:63342/chaoshi/index.html';
 					},1500);
 
 				}else{
@@ -313,7 +313,7 @@
 				}
 			},
 		})
-	}
+	};
 </script>
 <!-- //main slider-banner -->
 

@@ -301,7 +301,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		let email = $('#registerdForm input').eq(1).val();
 		let password = $('#registerdForm input').eq(2).val();
 		$.ajax({
-			url:'http://192.168.1.109:8082/user/addUser/'+name+'/'+email+'/'+password+'',
+			url:'http://192.168.1.6:8082/user/addUser/'+name+'/'+email+'/'+password+'',
 			type:"POST",
 			data:{
 				userName:name,
