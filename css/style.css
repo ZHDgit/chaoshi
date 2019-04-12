@@ -452,11 +452,11 @@ ul.multi-column-dropdown h6 {
 	outline:none;
 }
 #PPMiniCart .minicart-submit {
-    display: none;
+    display: block;
 }
 #PPMiniCart .minicart-submit:hover{
 	background:#fe9126 !important;
-	border-color: #5b951a !important;
+	border-color: #febb00 !important;
 }
 #PPMiniCart .minicart-subtotal {
     padding-left: 25px !important;
