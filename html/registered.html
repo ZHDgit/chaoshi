@@ -141,8 +141,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<form action="#" method="post" id='registerdForm'>
 					<input type="text" placeholder="用户名" required=" " >
 					<input type="email" placeholder="邮箱" required=" " >
-					<input type="password" placeholder="密码" required=" " >
-					<input type="password" placeholder="重复输入密码" required=" " >
+					<input type="password" placeholder="密码" required=" " class="passInput">
+					<input type="password" placeholder="重复输入密码" required=" " class="passInput">
 					<div id="verification"></div>
 					<div class="register-check-box">
 						<div class="check">
@@ -270,6 +270,56 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </script>
 <!-- //main slider-banner -->
 <script type="text/javascript">
+	function checkEmail(str){
+		var re = /^[A-Za-z\d]+([-_.][A-Za-z\d]+)*@([A-Za-z\d]+[-.])+[A-Za-z\d]{2,4}$/;
+		if (re.test(str)) {
+			$('.passInput').eq(0).attr('temp',true);
+		} else {
+			$('.passInput').eq(0).attr('temp',false);
+			layer.msg('邮箱格式错误');
+		}
+	}
+	function checkName(str){
+		var re = /^[a-zA-Z0-9_\u4e00-\u9fa5]{4,8}$/;
+		if (re.test(str)) {
+			$('.passInput').eq(0).attr('temp',true);
+
+		} else {
+			$('.passInput').eq(0).attr('temp',false);
+			layer.msg('用户名格式错误: 4到4位（文字，字母，数字）');
+		}
+	}
+	function checkPass(str){
+		var re = /^[a-zA-Z0-9\.]{6,16}$/;
+		if (re.test(str)) {
+			if($('.passInput').eq(0).val() != $('.passInput').eq(1).val()){
+				$('.passInput').eq(0).attr('temp',false);
+				layer.msg('两次密码不一致！');
+			}
+			if($('.passInput').eq(0).val() === '' || $('.passInput').eq(1).val() === ''){
+				$('.passInput').eq(0).attr('temp',false);
+				layer.msg('密码不能为空！');
+			}
+			if($('.passInput').eq(0).val() === $('.passInput').eq(1).val() && $('.passInput').eq(0).val() != '' && $('.passInput').eq(1).val() != ''){
+				$('.passInput').eq(0).attr('temp',true);
+			}
+		} else {
+			$('.passInput').eq(0).attr('temp',false);
+			layer.msg('密码格式错误: （6-16位数字或字母或.）');
+		}
+	}
+
+	//用户和邮箱
+	$('#registerdForm input').eq(0).blur(function () {
+		checkName($(this).val());
+	});
+	$('#registerdForm input').eq(1).blur(function () {
+		checkEmail($(this).val());
+	});
+	//验证两次密码是否一致
+	$('.passInput').blur(function () {
+		checkPass($(this).val());
+	});
 	//验证码
 	$('#verification').codeVerify({
 		type : 1,
@@ -281,12 +331,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		ready : function() {
 		},
 		success : function() {
-			$('#registerBtn').attr('disabled',false);
-			$('#registerBtn').addClass('hoverBtn');
-			$('#registerBtn').css('background','#3399cc');
-			$('#registerBtn').click(function () {
-				registerForm();
-			});
+				$('#registerBtn').attr('disabled',false);
+				$('#registerBtn').addClass('hoverBtn');
+				$('#registerBtn').css('background','#3399cc');
+				$('#registerBtn').click(function () {
+					registerForm();
+				});
+
 		},
 		error : function() {
 			$('#registerBtn').attr('disabled',true);
@@ -300,23 +351,31 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		let name = $('#registerdForm input').eq(0).val();
 		let email = $('#registerdForm input').eq(1).val();
 		let password = $('#registerdForm input').eq(2).val();
-		$.ajax({
-			url:'http://192.168.1.6:8082/user/addUser/'+name+'/'+email+'/'+password+'',
-			type:"POST",
-			data:{
-				userName:name,
-				userEmail:email,
-				userPassword:password
-			},
-			success:function(data){
-				if(data.code === 0){
-					layer.msg(data.message);
-					location.href = 'login.html';
-				}else{
-					layer.msg(data.message);
-				}
-			},
-		})
+		if($('.passInput').eq(0).attr('temp') === 'true'){
+			$.ajax({
+				url:''+url+'/user/addUser/'+name+'/'+email+'/'+password+'',
+				type:"POST",
+				data:{
+					userName:name,
+					userEmail:email,
+					userPassword:password
+				},
+				success:function(data){
+					if(data.code === 0){
+						layer.msg(data.message);
+						setTimeout(function getTest(){
+							location.href = 'login.html';
+						},1500);
+
+					}else{
+						layer.msg(data.message);
+					}
+				},
+			})
+		}else{
+			layer.msg('两次密码不一致！');
+		}
+
 	}
 </script>
 </body>
