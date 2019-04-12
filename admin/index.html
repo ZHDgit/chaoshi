@@ -16,15 +16,15 @@
     <div class="header clearfix">
         <h1>社区便利小超市管理台</h1>
         <div class="user">
-            <p>张大大<a href="login.html">退出</a></p>
+            <p>张大大<a href="./html/login.html">退出</a></p>
         </div>
     </div>
     <div class="center">
         <div class="main clearfix">
             <ul class="list-side">
-                　　<li class="active"><a target="user.html" >用户管理</a></li>
-                　　<li><a target="commodity.html" >商品管理</a></li>
-                　　<li><a target="passWord.html" >修改密码</a></li>
+                　　<li class="active"><a target="./html/user.html" >用户管理</a></li>
+                　　<li><a target="./html/commodity.html" >商品管理</a></li>
+                　　<li><a target="./html/passWord.html" >修改密码</a></li>
             </ul>
         </div>
         <div id="iframe" class="clearfix">
@@ -35,7 +35,7 @@
     </div>
     <script>
         $(document).ready(function(){
-            $.get("user.html",function(data){ //初始將a.html include div#iframe
+            $.get("./html/user.html",function(data){ //初始將a.html include div#iframe
                 $("#iframe").html(data);
             });
             $(function(){

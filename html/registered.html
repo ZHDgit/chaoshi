@@ -1,27 +1,33 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>社区便利小超市</title>
+<title>Super Market an Ecommerce Online Shopping Category Flat Bootstrap Responsive Website Template | Registered :: w3layouts</title>
 <!-- for-mobile-apps -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" content="Super Market Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+<meta name="keywords" content="Super Market Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
 		function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!-- //for-mobile-apps -->
-<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
-<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+<link href="../css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<link href="../css/style.css" rel="stylesheet" type="text/css" media="all" />
 <!-- font-awesome icons -->
-<link href="css/font-awesome.css" rel="stylesheet"> 
+<link href="../css/font-awesome.css" rel="stylesheet">
+<!--验证码-->
+<link rel="stylesheet" type="text/css" href="../yanzhengma/css/verify.css">
+<!-- //font-awesome icons -->
 <!-- js -->
-<script src="js/jquery-1.11.1.min.js"></script>
+<script src="../js/jquery-1.11.1.min.js"></script>
+<!--验证码-->
+<script type="text/javascript" src="../yanzhengma/js/verify.js" ></script>
+<script type="text/javascript" src="../layer/layer.js"></script>
 <!-- start-smoth-scrolling -->
-<script type="text/javascript" src="js/move-top.js"></script>
-<script type="text/javascript" src="js/easing.js"></script>
+<script type="text/javascript" src="../js/move-top.js"></script>
+<script type="text/javascript" src="../js/easing.js"></script>
 <script type="text/javascript">
 	jQuery(document).ready(function($) {
-		$(".scroll").click(function(event){		
+		$(".scroll").click(function(event){
 			event.preventDefault();
 			$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
 		});
@@ -29,6 +35,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </script>
 <!-- start-smoth-scrolling -->
 </head>
+
 <body>
 <!-- header -->
 <div class='miaov_head'>
@@ -47,7 +54,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<div class="w3ls_logo_products_left1">
 		</div>
 		<div class="w3ls_logo_products_left">
-			<h1><a href="index.html">便利小超市</a></h1>
+			<h1><a href="../index.html">便利小超市</a></h1>
 		</div>
 	<div class="w3l_search">
 		<form action="#" method="post">
@@ -58,7 +65,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="clearfix"></div>
 		</form>
 	</div>
-		
+
 		<div class="clearfix"> </div>
 	</div>
 </div>
@@ -75,29 +82,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<span class="icon-bar"></span>
 								<span class="icon-bar"></span>
 							</button>
-						</div> 
+						</div>
 						<div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
 							<ul class="nav navbar-nav">
-								<li class="active"><a href="index.html" class="act">首页</a></li>	
+								<li class="active"><a href="../index.html" class="act">首页</a></li>
 								<!-- Mega Menu -->
 								<li class="dropdown">
 									<a href="groceries.html">杂货</a>
-									<ul class="dropdown-menu multi-column columns-3">
-										<div class="row">
-											<div class="multi-gd-img">
-												<ul class="multi-column-dropdown">
-													<h6>All Groceries</h6>
-													<li><a href="groceries.html">Dals & Pulses</a></li>
-													<li><a href="groceries.html">Almonds</a></li>
-													<li><a href="groceries.html">Cashews</a></li>
-													<li><a href="groceries.html">Dry Fruit</a></li>
-													<li><a href="groceries.html"> Mukhwas </a></li>
-													<li><a href="groceries.html">Rice & Rice Products</a></li>
-												</ul>
-											</div>	
-											
-										</div>
-									</ul>
+
 								</li>
 								<li class="dropdown">
 									<a href="household.html">家用</a>
@@ -122,129 +114,57 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</div>
 						</nav>
 		</div>
-	</div>		
+	</div>
+
 <!-- //navigation -->
 <!-- breadcrumbs -->
 	<div class="breadcrumbs">
 		<div class="container">
 			<ol class="breadcrumb breadcrumb1 animated wow slideInLeft" data-wow-delay=".5s">
-				<li><a href="index.html"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>首页</a></li>
-				<li class="active">关于我们</li>
+				<li><a href="../index.html"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>首页</a></li>
+				<li class="active">注册页</li>
 			</ol>
 		</div>
 	</div>
 <!-- //breadcrumbs -->
-<!-- about -->
-	<div class="about">
+<!-- register -->
+	<div class="register">
 		<div class="container">
-			<h3 class="w3_agile_header">关于我们</h3>
-			<div class="about-agileinfo w3layouts">
-				<div class="col-md-8 about-wthree-grids grid-top">
-					<h4>XXXX超市简介</h4>
-					<p class="top">社区小超市坐落在长安区，韦曲街道，是一家以经营日用百货、烟酒食品为主,以代缴电费、手机费、预订机票等综合服务为辅的商业零售企业,四周均为密集的居民区，人旺、地旺、财气旺；物美价廉的商品，幽雅的购物环境和热情周到的服务，是广大消费者的购物理想场所。</p>
-					<p>超市坚持“诚信为本，和谐共赢”的企业宗旨，严把商品进货关，质量负责到底，价格货比三家，确保您买的放心，用的舒心，争做设施齐全、环境优雅的零售企业。为顾客提供“快乐,优惠,便捷,满意”的购物享受，满足广大顾客的需要。
-						超市将借鉴国际上最先进的现代商业企业经营理念和管理模式, 走连锁经营规模化发展的策略，以“统一采购,统一经营,保质保真,天天平价”等经营特色.以服务为根本,以规模促进效益,以管理创一流,在商品品种上,档次上以及购物环境上保持强劲的竞争优势.以保证顾客100%满意的标准,以诚心为本,以“团结、拼搏、开拓、奉献”的企业精神,用更加优良周到的服务,丰富优质的商品来扮靓人们的生活,力争成为人们生活中的一道靓丽的风景线,商界的璀璨奇葩.将与人民携手共创美好的明天！   </p>		
-					<div class="about-w3agilerow">
-						<div class="col-md-4 about-w3imgs">
-							<img src="images/p3.jpg" alt="" class="img-responsive zoom-img"/>
-						</div>
-						<div class="col-md-4 about-w3imgs">
-							<img src="images/p4.jpg" alt=""  class="img-responsive zoom-img"/>
-						</div>
-						<div class="col-md-4 about-w3imgs">
-							<img src="images/p3.jpg" alt=""  class="img-responsive zoom-img"/>
-						</div>
-						<div class="clearfix"> </div>
-					</div>
-				</div>
-				<div class="col-md-4 about-wthree-grids">
-					<div class="offic-time">
-						<div class="time-top">
-							<h4>今天您也要笑口常开</h4>
-						</div>
-						<div class="time-bottom">
-							<img src="./images/蔬菜1.jpg" alt="">
+			<h2>欢迎注册</h2>
+			<div class="login-form-grids">
+				<!-- <h5>请填写注册信息</h5>
+				<form action="#" method="post">
+					<input type="text" placeholder="请输入账号" required=" " >
+					<input type="text" placeholder="请再次输入账号" required=" " >
+				</form> -->
+				<h6>请填写注册信息</h6>
+					<form action="#" method="post" id='registerdForm'>
+					<input type="text" placeholder="用户名" required=" " >
+					<input type="email" placeholder="邮箱" required=" " >
+					<input type="password" placeholder="密码" required=" " >
+					<input type="password" placeholder="重复输入密码" required=" " >
+					<div id="verification"></div>
+					<div class="register-check-box">
+						<div class="check">
+							<label class="checkbox"><input type="checkbox" name="checkbox"><i> </i>我接受条款和条件</label>
 						</div>
 					</div>
-					<div class="testi">
-						<h3 class="w3_agile_header">证书</h3>
-						<!--//End-slider-script -->
-						<script src="js/responsiveslides.min.js"></script>
-						 <script>
-							// You can also use "$(window).load(function() {"
-							$(function () {
-							  // Slideshow 5
-							  $("#slider5").responsiveSlides({
-								auto: true,
-								pager: false,
-								nav: true,
-								speed: 500,
-								namespace: "callbacks",
-								before: function () {
-								  $('.events').append("<li>before event fired.</li>");
-								},
-								after: function () {
-								  $('.events').append("<li>after event fired.</li>");
-								}
-							  });
-						
-							});
-						  </script>
-						<div  id="top" class="callbacks_container">
-							<ul class="rslides" id="slider5">
-								<li>
-									<div class="testi-slider">
-										<h4>证书1</h4>
-										<p>营业执照</p>
-										<div class="testi-subscript">
-											<img src="./images/证书1.jpg" alt="">	
-										</div>	
-									</div>
-								</li>
-								<li>
-									<div class="testi-slider">
-										<h4>证书2</h4>
-										<p>卫生许可证</p>
-										<div class="testi-subscript">
-											<img src="./images/证书2.jpg" alt="">	
-										</div>	
-									</div>
-								</li>
-								<li>
-									<div class="testi-slider">
-										<h4>证书3</h4>
-										<p>客户好评证</p>
-										<div class="testi-subscript">
-											<img src="./images/证书3.jpg" alt="">	
-										</div>	
-									</div>
-								</li>
-							</ul>	
-						</div>
-					</div>
-				</div>	
-				<div class="clearfix"> </div>
+					<input type="button" value="确认注册" id="registerBtn" disabled="disabled">
+				</form>
+			</div>
+			<div class="register-home">
+				<a href="../index.html">首页</a>
 			</div>
 		</div>
 	</div>
-	<!-- //about -->
-	<!-- about-slid -->
-	<div class="about-slid agileits-w3layouts"> 
-		<div class="container">
-			<div class="about-slid-info"> 
-				<h2>如有什么问题，可联系我们。</h2>
-				<p>随时欢迎你提问</p>
-			</div>
-		</div>
-	</div>
-	<!-- //about-slid -->
+<!-- //register -->
 <!-- //footer -->
 <div class="footer">
 	<div class="container">
 		<div class="w3_footer_grids">
 			<div class="col-md-3 w3_footer_grid">
 				<h3>联系</h3>
-				
+
 				<ul class="address">
 					<li><i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i>长安区韦曲街道, <span>西安.</span></li>
 					<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i><a href="mailto:742963285@qq.com">742963285@qq.com</a></li>
@@ -253,7 +173,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 			<div class="col-md-3 w3_footer_grid">
 				<h3>信息</h3>
-				<ul class="info"> 
+				<ul class="info">
 					<li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="about.html">关于我们</a></li>
 					<li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="contact.html">联系我们</a></li>
 					<li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="faq.html">问答</a></li>
@@ -262,7 +182,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 			<div class="col-md-3 w3_footer_grid">
 				<h3>种类</h3>
-				<ul class="info"> 
+				<ul class="info">
 					<li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="groceries.html">杂货</a></li>
 					<li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="household.html">家用</a></li>
 					<li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="personalcare.html">个人护理</a></li>
@@ -272,22 +192,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 			<div class="col-md-3 w3_footer_grid">
 				<h3>简况</h3>
-				<ul class="info"> 
+				<ul class="info">
 					<li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="products.html">商场</a></li>
 					<li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="checkout.html">购物车</a></li>
 					<li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="login.html">登录</a></li>
 					<li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="registered.html">创建帐户</a></li>
 				</ul>
-				
-				
+
+
 			</div>
 			<div class="clearfix"> </div>
 		</div>
 	</div>
-	
 
-</div>	
-<div class="footer-botm">
+
+</div>
+	<div class="footer-botm">
 		<div class="container">
 			<div class="w3layouts-foot">
 				<ul>
@@ -297,15 +217,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<li><a href="#" class="w3_agile_vimeo"><i class="fa fa-vimeo" aria-hidden="true"></i></a></li>
 				</ul>
 			</div>
-			<div class="payment-w3ls">	
-				<img src="images/card.png" alt=" " class="img-responsive">
+			<div class="payment-w3ls">
+				<img src="../images/card.png" alt=" " class="img-responsive">
 			</div>
 			<div class="clearfix"> </div>
 		</div>
 	</div>
-<!-- //footer -->	
+<!-- //footer -->
 <!-- Bootstrap Core JavaScript -->
-<script src="js/bootstrap.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
 <!-- top-header and slider -->
 <!-- here stars scrolling icon -->
 	<script type="text/javascript">
@@ -315,16 +235,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				containerID: 'toTop', // fading element id
 				containerHoverID: 'toTopHover', // fading element hover id
 				scrollSpeed: 1200,
-				easingType: 'linear' 
+				easingType: 'linear'
 				};
 			*/
-								
+
 			$().UItoTop({ easingType: 'easeOutQuart' });
-								
+
 			});
 	</script>
 <!-- //here ends scrolling icon -->
-<script src="js/minicart.min.js"></script>
+<script src="../js/minicart.min.js"></script>
 <script>
 	// Mini Cart
 	paypal.minicart.render({
@@ -336,18 +256,68 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	}
 </script>
 <!-- main slider-banner -->
-<script src="js/skdslider.min.js"></script>
-<link href="css/skdslider.css" rel="stylesheet">
+<script src="../js/skdslider.min.js"></script>
+<link href="../css/skdslider.css" rel="stylesheet">
 <script type="text/javascript">
 		jQuery(document).ready(function(){
 			jQuery('#demo1').skdslider({'delay':5000, 'animationSpeed': 2000,'showNextPrev':true,'showPlayButton':true,'autoSlide':true,'animationType':'fading'});
-						
+
 			jQuery('#responsive').change(function(){
 			  $('#responsive_wrapper').width(jQuery(this).val());
 			});
-			
+
 		});
-</script>	
-<!-- //main slider-banner --> 
+</script>
+<!-- //main slider-banner -->
+<script type="text/javascript">
+	//验证码
+	$('#verification').codeVerify({
+		type : 1,
+		width : '400px',
+		height : '50px',
+		fontSize : '30px',
+		codeLength : 6,
+		btnId : 'check-btn',
+		ready : function() {
+		},
+		success : function() {
+			$('#registerBtn').attr('disabled',false);
+			$('#registerBtn').addClass('hoverBtn');
+			$('#registerBtn').css('background','#3399cc');
+			$('#registerBtn').click(function () {
+				registerForm();
+			});
+		},
+		error : function() {
+			$('#registerBtn').attr('disabled',true);
+			$('#registerBtn').removeClass('hoverBtn');
+			$('#registerBtn').css('background','#ccc');
+			layer.msg('验证码不匹配！');
+		}
+	});
+	//注册提交
+	function registerForm() {
+		let name = $('#registerdForm input').eq(0).val();
+		let email = $('#registerdForm input').eq(1).val();
+		let password = $('#registerdForm input').eq(2).val();
+		$.ajax({
+			url:'http://192.168.1.109:8082/user/addUser/'+name+'/'+email+'/'+password+'',
+			type:"POST",
+			data:{
+				userName:name,
+				userEmail:email,
+				userPassword:password
+			},
+			success:function(data){
+				if(data.code === 0){
+					layer.msg(data.message);
+					location.href = 'login.html';
+				}else{
+					layer.msg(data.message);
+				}
+			},
+		})
+	}
+</script>
 </body>
 </html>
