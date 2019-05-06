@@ -21,6 +21,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!-- start-smoth-scrolling -->
     <script type="text/javascript" src="../js/move-top.js"></script>
     <script type="text/javascript" src="../js/easing.js"></script>
+    <script type="text/javascript" src="../layer/layer.js"></script>
     <script type="text/javascript">
         jQuery(document).ready(function($) {
             $(".scroll").click(function(event){
@@ -110,52 +111,36 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         </ol>
     </div>
 </div>
+
 <!-- //breadcrumbs -->
 <!-- contact -->
 <div class="about">
     <div class="w3_agileits_contact_grids">
         <div class="col-md-6 w3_agileits_contact_grid_left">
-
             <div class="agileits_w3layouts_map_pos">
                 <div class="agileits_w3layouts_map_pos1">
-                    <h3>Contact Info</h3>
-                    <p>1234k Avenue, 4th block, New York City.</p>
+                    <h3>欢迎结算</h3>
+                    <p>感谢您选择我们的商品</p>
                     <ul class="wthree_contact_info_address">
-                        <li><i class="fa fa-envelope" aria-hidden="true"></i><a href="mailto:info@example.com">info@example.com</a></li>
-                        <li><i class="fa fa-phone" aria-hidden="true"></i>+(0123) 232 232</li>
+                        <li>您一共消费：<span class="amountMoney" style="font-size: 26px;color: #ff6c00;margin-right: 4px"></span>元</li>
+                        <li><p class="moneyBtn" style="width: 100%;text-align: center;background: #fff;color: #333;cursor: pointer;height: 34px;line-height: 34px">结算</p></li>
                     </ul>
-                    <div class="w3_agile_social_icons w3_agile_social_icons_contact">
-                        <ul>
-                            <li><a href="#" class="icon icon-cube agile_facebook"></a></li>
-                            <li><a href="#" class="icon icon-cube agile_rss"></a></li>
-                            <li><a href="#" class="icon icon-cube agile_t"></a></li>
-                        </ul>
-                    </div>
+
                 </div>
             </div>
         </div>
         <div class="col-md-6 w3_agileits_contact_grid_right">
-            <h2 class="w3_agile_header">Leave a<span> Message</span></h2>
-
-            <form action="#" method="post">
-					<span class="input input--ichiro">
-						<input class="input__field input__field--ichiro" type="text" id="input-25" name="Name" placeholder=" " required="" />
-						<label class="input__label input__label--ichiro" for="input-25">
-							<span class="input__label-content input__label-content--ichiro">Your Name</span>
-						</label>
-					</span>
-                <span class="input input--ichiro">
-						<input class="input__field input__field--ichiro" type="email" id="input-26" name="Email" placeholder=" " required="" />
-						<label class="input__label input__label--ichiro" for="input-26">
-							<span class="input__label-content input__label-content--ichiro">Your Email</span>
-						</label>
-					</span>
-                <textarea name="Message" placeholder="Your message here..." required=""></textarea>
-                <input type="submit" value="Submit">
-            </form>
+            <h2 class="w3_agile_header">感谢您<span>的选择</span></h2>
+            <div style="height: 400px;border: 2px solid #f4f4f4;color: #3c3939;margin-top: 20px;line-height: 50px;font-size: 18px;text-indent: 36px;padding: 14px 40px">
+                超市坚持“诚信为本，和谐共赢”的企业宗旨，严把商品进货关，质量负责到底，价格货比三家，确保您买的放心，用的舒心，争做设施齐全、环境优雅的零售企业。为顾客提供“快乐,优惠,便捷,满意”的购物享受，满足广大顾客的需要。
+            </div>
         </div>
         <div class="clearfix"> </div>
     </div>
+</div>
+<div id="moneyDiv">
+    <h1 style="text-align: center;margin-top: 20px">扫一扫支付</h1>
+    <img src="../images/fukuan.jpg" alt="支付二维码" style="margin-left: 20px">
 </div>
 <!-- contact -->
 
@@ -271,7 +256,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             return null; //返回参数值
         };
         var money = getUrlParam("money");
-        alert(money);
+        $('.amountMoney').text(money);
+        $('.moneyBtn').click(function () {
+            layer.open({
+                type: 1,
+                shade: 0.5,
+                title: false, //不显示标题
+                anim:1,
+                area: ['404px', '508px'],
+                content: $('#moneyDiv'), //捕获的元素，注意：最好该指定的元素要存放在body最外层，否则可能被其它的相对元素所影响
+                cancel: function() {
+
+                }
+            });
+        });
+        $('#moneyDiv').hide();
     });
 </script>
 <!-- //main slider-banner -->
