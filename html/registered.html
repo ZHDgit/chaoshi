@@ -34,6 +34,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	});
 </script>
 <!-- start-smoth-scrolling -->
+	<style>
+		.nameP{
+			position: absolute;
+			right: 0;
+			top: 10px;
+			display: none;
+		}
+	</style>
 </head>
 
 <body>
@@ -138,8 +146,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<input type="text" placeholder="请再次输入账号" required=" " >
 				</form> -->
 				<h6>请填写注册信息</h6>
-					<form action="#" method="post" id='registerdForm'>
+					<form action="#" method="post" id='registerdForm' style="position: relative">
+						<p style="color: red;" class="nameP">用户名重复！</p>
+						<p style="color: green;margin-right: 20px;" class="nameP">√</p>
 					<input type="text" placeholder="用户名" required=" " >
+
 					<input type="email" placeholder="邮箱" required=" " >
 					<input type="password" placeholder="密码" required=" " class="passInput">
 					<input type="password" placeholder="重复输入密码" required=" " class="passInput">
@@ -280,13 +291,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		}
 	}
 	function checkName(str){
-		var re = /^[a-zA-Z0-9_\u4e00-\u9fa5]{4,8}$/;
+		var re = /^[a-zA-Z0-9_\u4e00-\u9fa5]{2,8}$/;
 		if (re.test(str)) {
 			$('.passInput').eq(0).attr('temp',true);
 
 		} else {
 			$('.passInput').eq(0).attr('temp',false);
-			layer.msg('用户名格式错误: 4到4位（文字，字母，数字）');
+			layer.msg('用户名格式错误: 2到8位（文字，字母，数字）');
 		}
 	}
 	function checkPass(str){
@@ -311,6 +322,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 	//用户和邮箱
 	$('#registerdForm input').eq(0).blur(function () {
+		var name = $(this).val();
+		$.ajax({
+			url: url+'user/checkUserName/'+ name,
+			type:"POST",
+			success:function(data){
+				if(data.code == 0){
+					$('.nameP').eq(0).hide();
+					$('.nameP').eq(1).show();
+				}else{
+					$('.nameP').eq(1).hide();
+					$('.nameP').eq(0).show();
+				}
+			},
+		})
 		checkName($(this).val());
 	});
 	$('#registerdForm input').eq(1).blur(function () {
