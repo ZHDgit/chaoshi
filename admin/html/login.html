@@ -24,6 +24,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <script type="text/javascript" src="../../js/easing.js"></script>
     <!--验证码-->
     <script type="text/javascript" src="../../yanzhengma/js/verify.js" ></script>
+    <script type="text/javascript" src="../../layer/layer.js"></script>
+    <script type="text/javascript" src="../../js/jqueryCookie/jquery.cookie.js"></script>
     <script type="text/javascript">
         jQuery(document).ready(function($) {
             $(".scroll").click(function(event){
@@ -49,10 +51,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <div class="login">
     <div class="container">
         <h2>欢迎登录</h2>
-
         <div class="login-form-grids animated wow slideInUp" data-wow-delay=".5s">
-            <form>
-                <input type="email" placeholder="输入账号" required=" " >
+            <form id="loginForm">
+                <input type="text" placeholder="输入账号" required=" " >
                 <input type="password" placeholder="输入密码" required=" " >
                 <div id="verification"></div>
                 <input type="button" value="登录" id="loginBtn" disabled="disabled">
@@ -118,6 +119,29 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             $('#loginBtn').attr('disabled',false);
             $('#loginBtn').addClass('hoverBtn');
             $('#loginBtn').css('background','#3399cc');
+            $('#loginBtn').click(function () {
+                var name = $('#loginForm input').eq(0).val();
+                var password = $('#loginForm input').eq(1).val();
+                $.ajax({
+                    url:url+'admin/adminLogin',
+                    type:"POST",
+                    data:{adminName:name,adminPassword:password},
+                    success:function (data) {
+                        if(data.code == 0){
+                            layer.msg('登录成功！');
+                            $.cookie('adminName', name, { expires: 7,path:'/'});
+                            setTimeout(function getTest(){
+                                location.href = 'http://localhost:63343/chaoshi/admin/index.html';
+                            },1500);
+                        }else{
+                            layer.msg('用户名或密码错误！');
+                            $('#loginBtn').attr('disabled',true);
+                            $('#loginBtn').removeClass('hoverBtn');
+                            $('#loginBtn').css('background','#ccc');
+                        }
+                    }
+                })
+            })
         },
         error : function() {
             $('#loginBtn').attr('disabled',true);

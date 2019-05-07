@@ -10,13 +10,14 @@
     <link rel="stylesheet" href="./css/index.css">
     <script src="../js/jquery-1.11.1.min.js" type="text/javascript"></script>
     <script src="../layer/layer.js"></script>
+    <script src="../js/jqueryCookie/jquery.cookie.js"></script>
 
 </head>
 <body>
     <div class="header clearfix">
         <h1>社区便利小超市管理台</h1>
         <div class="user">
-            <p>张大大<a href="./html/login.html">退出</a></p>
+            <p><span class="loginUserName" style="color:#fff;margin-right: 10px"></span><span class="signOut" style="cursor: pointer">退出</span></p>
         </div>
     </div>
     <div class="center">
@@ -52,6 +53,13 @@
                     $(this).addClass('active').siblings().removeClass('active');
                 })
             });
+            if($.cookie('adminName')!='null'){
+                $('.loginUserName').text($.cookie('adminName'));
+            }
+            $('.signOut').click(function () {
+                $.cookie('adminName','',{ expires: -1 });
+                location.href = "./html/login.html";
+            })
          });
     </script>
     <script  type="text/javascript" src="./js/index.js"></script>

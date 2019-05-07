@@ -5,7 +5,6 @@
     <title>Title</title>
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="./css/form.css">
-    <script type="text/javascript" src="../js/jquery-1.11.1.min.js"></script>
     <script type="text/javascript" src="../layer/layer.js"></script>
     <style>
         .addAdmin{
@@ -17,6 +16,13 @@
             border-radius: 4px;
             cursor: pointer;
         }
+
+         .nameP{
+             position: absolute;
+             right: 84px;
+             top: 18px;
+             display: none;
+         }
     </style>
 </head>
 <body>
@@ -29,7 +35,9 @@
             <table class="EditTable">
                 <tr>
                     <th>用户名</th>
-                    <td>
+                    <td style="position: relative">
+                        <p style="color: red;" class="nameP">用户名重复！</p>
+                        <p style="color: green;margin-right: 20px;" class="nameP">√</p>
                         <input type="text" value="zhnfgdada" name="adminName">
                     </td>
                 </tr>
@@ -212,25 +220,47 @@
             cancel: function() {
             }
         });
-        $('#addUser').click(function () {
-            var name = $('.EditTable input').eq(0).val();
-            var password = $('.EditTable input').eq(1).val();
+        $('.EditTable input').eq(0).blur(function () {
+            var tmp =false;
+            var userName = $(this).val();
             $.ajax({
-                url:url + 'admin/addAdmin',
+                url:url + 'admin/checkAdminName/'+userName,
                 type:"POST",
-                data:{adminName:name,adminPassword:password,type:1},
                 success:function (data) {
                     if(data.code == 0){
-                        layer.msg('添加成功');
-                        setTimeout(function getTest(){
-                            window.location.reload();
-                        },1500);
+                        $('.nameP').eq(0).hide();
+                        $('.nameP').eq(1).show();
+                        add();
                     }else{
-                        layer.msg('添加失败');
+                        layer.msg('已有该名称！');
+                        $('.nameP').eq(1).hide();
+                        $('.nameP').eq(0).show();
                     }
                 }
             })
         })
+        function add() {
+            $('#addUser').click(function () {
+                var name = $('.EditTable input').eq(0).val();
+                var password = $('.EditTable input').eq(1).val();
+                $.ajax({
+                    url:url + 'admin/addAdmin',
+                    type:"POST",
+                    data:{adminName:name,adminPassword:password,type:1},
+                    success:function (data) {
+                        if(data.code == 0){
+                            layer.msg('添加成功');
+                            setTimeout(function getTest(){
+                                window.location.reload();
+                            },1500);
+                        }else{
+                            layer.msg('添加失败');
+                        }
+                    }
+                })
+            })
+        }
+
     });
     $('#addAdminDiv').hide();
 
