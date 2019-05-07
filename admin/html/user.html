@@ -7,8 +7,51 @@
     <link rel="stylesheet" href="./css/form.css">
     <script type="text/javascript" src="../js/jquery-1.11.1.min.js"></script>
     <script type="text/javascript" src="../layer/layer.js"></script>
+    <style>
+        .addAdmin{
+            float: right;
+            height: 40px;
+            line-height: 40px;
+            width: 140px;
+            background: #ccc;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
+    <div>
+        <p class="addAdmin">添加管理员</p>
+    </div>
+    <div id="addAdminDiv">
+        <h1>添加管理员</h1>
+        <form action="http://192.168.1.6:8082/admin/addAdmin" id="addAdminForm" method="post">
+            <table class="EditTable">
+                <tr>
+                    <th>用户名</th>
+                    <td>
+                        <input type="text" value="zhnfgdada" name="adminName">
+                    </td>
+                </tr>
+                <tr>
+                    <th>密码</th>
+                    <td>
+                        <input type="password" value="123456789" name="adminPassword">
+                        <input type="hidden" name="type" value="0">
+                    </td>
+                </tr>
+
+            </table>
+            <table>
+                <tr>
+                    <td>
+                        <span style="margin-left: 360px" class="layui-layer-close editTableSpan">返回</span>
+                        <span class="editTableSpan" id="addUser">确定</span>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
     <div>
         <form action="" id="userFrom">
             <table class="table" style="margin: 0 auto;">
@@ -158,7 +201,39 @@
         });
     });
     $('#userEdit').hide();
-    //分页
+    $('.addAdmin').click(function () {
+        layer.open({
+            type: 1,
+            shade: 0.5,
+            title: false, //不显示标题
+            anim:1,
+            area: ['670px', '408px'],
+            content: $('#addAdminDiv'), //捕获的元素，注意：最好该指定的元素要存放在body最外层，否则可能被其它的相对元素所影响
+            cancel: function() {
+            }
+        });
+        $('#addUser').click(function () {
+            var name = $('.EditTable input').eq(0).val();
+            var password = $('.EditTable input').eq(1).val();
+            $.ajax({
+                url:url + 'admin/addAdmin',
+                type:"POST",
+                data:{adminName:name,adminPassword:password,type:1},
+                success:function (data) {
+                    if(data.code == 0){
+                        layer.msg('添加成功');
+                        setTimeout(function getTest(){
+                            window.location.reload();
+                        },1500);
+                    }else{
+                        layer.msg('添加失败');
+                    }
+                }
+            })
+        })
+    });
+    $('#addAdminDiv').hide();
+
 
 </script>
 </html>

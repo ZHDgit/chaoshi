@@ -1425,9 +1425,6 @@ ul.paging {
 .pagination > li > a{
 	color:#212121;
 }
-.categories,.new-products{
-	border:1px solid #999;
-}
 .categories h2{
 	font-size: 1.5em;
     color: #212121;
@@ -1953,7 +1950,7 @@ a.callbacks1_s3.active,a.callbacks1_s3:focus{
 }
 .agileits_w3layouts_map_pos{
 	position: absolute;
-    right: -15%;
+    right: 0%;
     top: 22%;
     width: 50%;
     padding: 2em;
