@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../myModal/css/jquery.my-modal.1.1.winStyle.css">
     <link rel="stylesheet" href="./css/form.css">
     <script type="text/javascript" src="../layer/layer.js"></script>
+    <script type="text/javascript" src="../myModal/js/jquery.my-modal.1.1.js"></script>
     <style>
         .addAdmin{
             float: right;
@@ -15,6 +17,7 @@
             background: #ccc;
             border-radius: 4px;
             cursor: pointer;
+            margin-left: 60px;
         }
 
          .nameP{
@@ -38,13 +41,13 @@
                     <td style="position: relative">
                         <p style="color: red;" class="nameP">用户名重复！</p>
                         <p style="color: green;margin-right: 20px;" class="nameP">√</p>
-                        <input type="text" value="zhnfgdada" name="adminName">
+                        <input type="text" value="" name="adminName" placeholder="请输入管理员账号">
                     </td>
                 </tr>
                 <tr>
                     <th>密码</th>
                     <td>
-                        <input type="password" value="123456789" name="adminPassword">
+                        <input type="password" value="" name="adminPassword" placeholder="请输入管理员密码">
                         <input type="hidden" name="type" value="0">
                     </td>
                 </tr>
@@ -63,152 +66,77 @@
     <div>
         <form action="" id="userFrom">
             <table class="table" style="margin: 0 auto;">
-                <tr>
-                    <th>用户名</th>
-                    <th>密码</th>
-                    <th>创建时间</th>
-                    <th>管理</th>
-                </tr>
-                <tr>
-                    <td>zhangdada</td>
-                    <td>123456789</td>
-                    <td>2019-12-12</td>
-                    <td>
-                        <span class="editSpan">编辑</span>
-                        <span class="deleteSpan">删除</span>
-                    </td>
-                </tr>
-                <tr>
-                    <td>zhangdada</td>
-                    <td>123456789</td>
-                    <td>2019-12-12</td>
-                    <td>
-                        <span class="editSpan">编辑</span>
-                        <span class="deleteSpan">删除</span>
-                    </td>
-                </tr>
-                <tr>
-                    <td>zhangdada</td>
-                    <td>123456789</td>
-                    <td>2019-12-12</td>
-                    <td>
-                        <span class="editSpan">编辑</span>
-                        <span class="deleteSpan">删除</span>
-                    </td>
-                </tr>
-                <tr>
-                    <td>zhangdada</td>
-                    <td>123456789</td>
-                    <td>2019-12-12</td>
-                    <td>
-                        <span class="editSpan">编辑</span>
-                        <span class="deleteSpan">删除</span>
-                    </td>
-                </tr>
-                <tr>
-                    <td>zhangdada</td>
-                    <td>123456789</td>
-                    <td>2019-12-12</td>
-                    <td>
-                        <span class="editSpan">编辑</span>
-                        <span class="deleteSpan">删除</span>
-                    </td>
-                </tr>
-                <tr>
-                    <td>zhangdada</td>
-                    <td>123456789</td>
-                    <td>2019-12-12</td>
-                    <td>
-                        <span class="editSpan">编辑</span>
-                        <span class="deleteSpan">删除</span>
-                    </td>
-                </tr>
-                <tr>
-                    <td>zhangdada</td>
-                    <td>123456789</td>
-                    <td>2019-12-12</td>
-                    <td>
-                        <span class="editSpan">编辑</span>
-                        <span class="deleteSpan">删除</span>
-                    </td>
-                </tr>
-                <tr>
-                    <td>zhangdada</td>
-                    <td>123456789</td>
-                    <td>2019-12-12</td>
-                    <td>
-                        <span class="editSpan">编辑</span>
-                        <span class="deleteSpan">删除</span>
-                    </td>
-                </tr>
-                <tr>
-                    <td>zhangdada</td>
-                    <td>123456789</td>
-                    <td>2019-12-12</td>
-                    <td>
-                        <span class="editSpan">编辑</span>
-                        <span class="deleteSpan">删除</span>
-                    </td>
-                </tr>
-                <tr>
-                    <td>zhangdada</td>
-                    <td>123456789</td>
-                    <td>2019-12-12</td>
-                    <td>
-                        <span class="editSpan">编辑</span>
-                        <span class="deleteSpan">删除</span>
-                    </td>
-                </tr>
+
+
+
 
             </table>
         </form>
         <div id="pageId"></div>
-        <div id="userEdit" class="userEdit EditDiv">
-            <h1>编辑用户信息</h1>
-            <form action="">
-                <table class="EditTable">
-                    <tr>
-                        <th>用户名</th>
-                        <td>
-                            <input type="text" value="zhnfgdada">
-                        </td>
-                    </tr>
-                    <tr>
+        <!--修改用户信息-->
+        <div class="m-modal">
+            <div class="m-modal-dialog">
+                <div class="m-top">
+                    <h4 class="m-modal-title">
+                        修改用户信息
+                    </h4>
+                    <span class="m-modal-close">&times;</span>
+                </div>
+                <div class="m-middle">
+                    <form action="">
+                        <table class="EditTable">
+                            <tr>
+                                <th>用户名</th>
+                                <td>
+                                    <input type="text" value="">
+                                </td>
+                            </tr>
+                            <tr>
 
-                        <th>密码</th>
-                        <td>
-                            <input type="text" value="123456789">
-                        </td>
-                    </tr>
+                                <th>密码</th>
+                                <td>
+                                    <input type="password" value="">
+                                    <input type="hidden" value="" id="userId">
+                                </td>
+                            </tr>
 
-                </table>
-                <table>
-                    <tr>
-                        <td>
-                            <span style="margin-left: 360px" class="layui-layer-close editTableSpan">返回</span>
-                            <span class="editTableSpan">确定</span>
-                        </td>
-                    </tr>
-                </table>
-            </form>
+                        </table>
+                        <table style="margin:20px 0 40px 0">
+                            <tr>
+                                <td>
+                                    <div class="operationDiv">
+                                        <span class="editTableSpan editTableSpanTrue">确定</span>
+                                        <span style="margin-left: 40px" class="m-btn-cancel editTableSpan">返回</span>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </form>
+                </div>
+
+            </div>
         </div>
     </div>
 </body>
 <script>
-    $('#userFrom .editSpan').click(function () {
-        layer.open({
-            type: 1,
-            shade: 0.5,
-            title: false, //不显示标题
-            anim:1,
-            area: ['670px', '408px'],
-            content: $('#userEdit'), //捕获的元素，注意：最好该指定的元素要存放在body最外层，否则可能被其它的相对元素所影响
-            cancel: function() {
 
-            }
-        });
-    });
-    $('#userEdit').hide();
+    function add0(m){return m<10?'0'+m:m }
+    function format(timestamp)
+    {
+        //timestamp是整数，否则要parseInt转换,不会出现少个0的情况
+
+        var time = new Date(timestamp);
+        var year = time.getFullYear();
+        var month = time.getMonth()+1;
+        var date = time.getDate();
+        var hours = time.getHours();
+        var minutes = time.getMinutes();
+        var seconds = time.getSeconds();
+        return year+'-'+add0(month)+'-'+add0(date)+' '+add0(hours)+':'+add0(minutes)+':'+add0(seconds);
+    }
+
+
+    $('#addAdminDiv').hide();
     $('.addAdmin').click(function () {
         layer.open({
             type: 1,
@@ -262,7 +190,70 @@
         }
 
     });
-    $('#addAdminDiv').hide();
+    //修改商品
+    function edit() {
+        var m1 = new MyModal.modal(function() {
+            alert("你点击了确定");
+        });
+        $('.editSpan').on("click", function() {
+            m1.show();
+        });
+        $('.editSpan').click(function () {
+            $('#userId').val($(this).attr('id'));
+
+            var name = $('#userEdit input').eq(0).val();
+            var password = $('#userEdit input').eq(1).val();
+            $('.editTableSpanTrue').click(function () {
+                if(name != null && password != null){
+                    $.ajax({
+                        url:url+'admin/updateAdmin',
+                        type:'POST',
+                        data:{id:2,adminName:name,adminPassword:password},
+                        success:function (data) {
+                            if(data.code == 0){
+                                layer.msg("修改成功！");
+                                setTimeout(function getTest(){
+                                    window.parent.location.reload();
+                                },1500);
+                            }else{
+                                layer.msg("修改失败！");
+                            }
+                        }
+                    })
+                }else{
+                    layer.msg("请正确输入！")
+                }
+
+            })
+
+
+        });
+    }
+    $.ajax({
+        url:url+'admin/getAdminList',
+        type:'POST',
+        success:function (data) {
+            if(data.code == 0){
+                var data = data.data;
+                var str = '<tr><th>用户名</th><th>创建时间</th><th>类别</th><th>管理</th></tr>';
+                for(var i = 0;i < data.length;i++){
+                    str += '<tr><td>'+data[i].adminName+'</td>'+
+                            '<td>'+format(data[i].createDate)+'</td>';
+                    if(data[i].type === 0){
+                        str += '<td style="color:red">超级管理员</td>';
+                    }else{
+                        str += '<td>普通管理员</td>';
+                    }
+                    str += '<td><span class="editSpan" id="'+data[i].id+'" style="margin-right: 10px">编辑</span><span class="deleteSpan">删除</span></td>';
+                }
+                $('#userFrom table').html(str);
+                edit();
+            }else{
+                layer.msg('没有管理员数据呢！请点击添加按钮进行添加管理员！');
+
+            }
+        }
+    })
 
 
 </script>

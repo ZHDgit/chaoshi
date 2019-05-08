@@ -4,114 +4,37 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../myModal/css/jquery.my-modal.1.1.winStyle.css">
     <link rel="stylesheet" href="./css/form.css">
     <script type="text/javascript" src="../layer/layer.js"></script>
+    <script type="text/javascript" src="../myModal/js/jquery.my-modal.1.1.js"></script>
+
+
+    <style>
+        .addCommodity{
+            float: right;
+            height: 40px;
+            line-height: 40px;
+            width: 140px;
+            background: #ccc;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-left: 60px;
+        }
+    </style>
 </head>
 <body>
 <div>
+    <div>
+        <p class="addCommodity">添加商品</p>
+    </div>
     <form action="" id="commodityFrom">
         <table class="table" style="margin: 0 auto;">
-            <tr>
-                <th>商品名称</th>
-                <th>价格（元）</th>
-                <th>数量</th>
-                <th>管理</th>
-            </tr>
-            <tr>
-                <td>zhangdada</td>
-                <td>123456789</td>
-                <td>fuhzoujiangshdif123</td>
-                <td>
-                    <span class="editSpan">编辑</span>
-                    <span class="deleteSpan">删除</span>
-                </td>
-            </tr>
-            <tr>
-                <td>zhangdada</td>
-                <td>123456789</td>
-                <td>fuhzoujiangshdif123</td>
-                <td>
-                    <span class="editSpan">编辑</span>
-                    <span class="deleteSpan">删除</span>
-                </td>
-            </tr>
-            <tr>
-                <td>zhangdada</td>
-                <td>123456789</td>
-                <td>fuhzoujiangshdif123</td>
-                <td>
-                    <span class="editSpan">编辑</span>
-                    <span class="deleteSpan">删除</span>
-                </td>
-            </tr>
-            <tr>
-                <td>zhangdada</td>
-                <td>123456789</td>
-                <td>fuhzoujiangshdif123</td>
-                <td>
-                    <span class="editSpan">编辑</span>
-                    <span class="deleteSpan">删除</span>
-                </td>
-            </tr>
-            <tr>
-                <td>zhangdada</td>
-                <td>123456789</td>
-                <td>fuhzoujiangshdif123</td>
-                <td>
-                    <span class="editSpan">编辑</span>
-                    <span class="deleteSpan">删除</span>
-                </td>
-            </tr>
-            <tr>
-                <td>zhangdada</td>
-                <td>123456789</td>
-                <td>fuhzoujiangshdif123</td>
-                <td>
-                    <span class="editSpan">编辑</span>
-                    <span class="deleteSpan">删除</span>
-                </td>
-            </tr>
-            <tr>
-                <td>zhangdada</td>
-                <td>123456789</td>
-                <td>fuhzoujiangshdif123</td>
-                <td>
-                    <span class="editSpan">编辑</span>
-                    <span class="deleteSpan">删除</span>
-                </td>
-            </tr>
-            <tr>
-                <td>zhangdada</td>
-                <td>123456789</td>
-                <td>fuhzoujiangshdif123</td>
-                <td>
-                    <span class="editSpan">编辑</span>
-                    <span class="deleteSpan">删除</span>
-                </td>
-            </tr>
-            <tr>
-                <td>zhangdada</td>
-                <td>123456789</td>
-                <td>fuhzoujiangshdif123</td>
-                <td>
-                    <span class="editSpan">编辑</span>
-                    <span class="deleteSpan">删除</span>
-                </td>
-            </tr>
-            <tr>
-                <td>zhangdada</td>
-                <td>123456789</td>
-                <td>fuhzoujiangshdif123</td>
-                <td>
-                    <span class="editSpan">编辑</span>
-                    <span class="deleteSpan">删除</span>
-                </td>
-            </tr>
 
         </table>
     </form>
     <div id="commodityEdit" class="userEdit EditDiv">
-        <h1>编辑用户信息</h1>
+        <h1>添加商品</h1>
         <form action="">
             <table class="EditTable">
                 <tr>
@@ -164,9 +87,109 @@
         </form>
     </div>
 </div>
-</body>
+<!--修改商品-->
+<div class="m-modal">
+    <div class="m-modal-dialog">
+        <div class="m-top">
+            <h4 class="m-modal-title">
+                修改商品
+            </h4>
+            <span class="m-modal-close">&times;</span>
+        </div>
+        <div class="m-middle">
+            <form action="">
+                <table>
+                    <tr>
+                        <th>商品名称</th>
+                        <td>
+                            <input type="text" value="zhnfgdada">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>商品简介</th>
+                        <td>
+                            <input type="text" value="这个东西很好">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>原价（元）</th>
+                        <td>
+                            <input type="text" value="123456789">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>优惠价格（元）</th>
+                        <td>
+                            <input type="text" value="123">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>数量</th>
+
+                        <td>
+                            <input type="text" value="asjdfkljasdlfjafksdkjf;asd">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>图片</th>
+
+                        <td>
+                            <input type="text" value="asjdfkljasdlfjafksdkjf;asd">
+                        </td>
+                    </tr>
+                </table>
+                <table style="margin-bottom: 40px">
+                    <tr>
+                        <td>
+                            <span style="margin-left: 360px" class="editTableSpan m-btn-cancel">返回</span>
+                            <span class="editTableSpan m-btn-sure">确定</span>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+
+    </div>
+</div>
+?</body>
 <script>
-    $('#commodityFrom .editSpan').click(function () {
+    $.ajax({
+        url:url+'goods/getGoodsList/0/0',
+        type:'POST',
+        success:function (data) {
+
+            if (data.code == 0) {
+                var data = data.data;
+                var str = '<tr><th>商品名称</th><th>价格（元）</th><th>类别</th>><th>数量</th><th>管理</th></tr>';
+                for (var i = 0; i < data.length; i++) {
+                    str += '<tr><td>' + data[i].goodsName + '</td>' +
+                        '<td style="color: red">' + data[i].goodsPrice + '</td>';
+                    if(data[i].goodsCategory == 1){
+                        str += '<td>杂货</td>';
+                    }else if(data[i].goodsCategory == 2){
+                        str += '<td>家用</td>';
+                    }else if(data[i].goodsCategory == 3){
+                        str += '<td>个人护理</td>';
+                    }else if(data[i].goodsCategory == 4){
+                        str += '<td>包装食品</td>';
+                    }else if(data[i].goodsCategory == 5){
+                        str += '<td>饮料&酒水</td>';
+                    }else if(data[i].goodsCategory == 6){
+                        str += '<td>水果</td>';
+                    }
+                    str += '<td>' + data[i].goodsNum + '</td>'+
+                    '<td><span class="editSpan">编辑</span><span class="deleteSpan">删除</span></td>';
+                    $('#commodityFrom table').html(str);
+                    edit();
+
+                }
+
+            }
+        }
+    })
+
+    $('#commodityEdit').hide();
+    $('.addCommodity').click(function () {
         layer.open({
             type: 1,
             shade: 0.5,
@@ -179,7 +202,16 @@
             }
         });
     });
-    $('#commodityEdit').hide();
+    //修改商品
+    function edit() {
+        var m1 = new MyModal.modal(function() {
+            alert("你点击了确定");
+        });
+        $('.editSpan').on("click", function() {
+            m1.show();
+        });
+    }
+
     //分页
 
 </script>

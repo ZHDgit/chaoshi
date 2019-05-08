@@ -23,7 +23,7 @@ form{
     color: red;
 }
 .EditTable {
-    margin: 40px 20px 40px 70px;
+    margin-top: 40px;
 }
 .EditTable tr{
     height: 60px;
@@ -47,15 +47,18 @@ form{
     color: #fff;
     line-height: 40px;
 }
+.operationDiv{
+    display: flex;
+    justify-content: center;
+}
 .editTableSpan{
-    display: block;
+
     height: 30px;
     width: 80px;
     background: #333;
     line-height: 30px;
     border-radius: 8px;
     color: #fff;
-    margin-left: 200px;
     cursor: pointer;
 }
 .passwordTable{
