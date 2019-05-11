@@ -35,7 +35,7 @@
     <div id="addAdminDiv">
         <h1>添加管理员</h1>
         <form action="http://192.168.1.6:8082/admin/addAdmin" id="addAdminForm" method="post">
-            <table class="EditTable">
+            <table class="addTable">
                 <tr>
                     <th>用户名</th>
                     <td style="position: relative">
@@ -53,11 +53,14 @@
                 </tr>
 
             </table>
-            <table>
+            <table style="margin:20px 0 40px 0">
                 <tr>
                     <td>
-                        <span style="margin-left: 360px" class="layui-layer-close editTableSpan">返回</span>
-                        <span class="editTableSpan" id="addUser">确定</span>
+                        <div class="operationDiv">
+                            <span class="editTableSpan" id="addUser">确定</span>
+                            <span class="layui-layer-close editTableSpan" style="margin-left: 40px;">返回</span>
+                        </div>
+
                     </td>
                 </tr>
             </table>
@@ -148,7 +151,7 @@
             cancel: function() {
             }
         });
-        $('.EditTable input').eq(0).blur(function () {
+        $('.addTable input').eq(0).blur(function () {
             var tmp =false;
             var userName = $(this).val();
             $.ajax({
@@ -169,8 +172,8 @@
         })
         function add() {
             $('#addUser').click(function () {
-                var name = $('.EditTable input').eq(0).val();
-                var password = $('.EditTable input').eq(1).val();
+                var name = $('.addTable input').eq(0).val();
+                var password = $('.addTable input').eq(1).val();
                 $.ajax({
                     url:url + 'admin/addAdmin',
                     type:"POST",
@@ -190,31 +193,28 @@
         }
 
     });
-    //修改商品
+    //修改用户
     function edit() {
         var m1 = new MyModal.modal(function() {
-            alert("你点击了确定");
+
         });
         $('.editSpan').on("click", function() {
             m1.show();
-        });
-        $('.editSpan').click(function () {
-            $('#userId').val($(this).attr('id'));
-
-            var name = $('#userEdit input').eq(0).val();
-            var password = $('#userEdit input').eq(1).val();
+            var id = $(this).attr('id');
             $('.editTableSpanTrue').click(function () {
+                var name = $('.EditTable input').eq(0).val();
+                console.log(id);
+                var password = $('.EditTable input').eq(1).val();
+                console.log(password);
                 if(name != null && password != null){
                     $.ajax({
                         url:url+'admin/updateAdmin',
                         type:'POST',
-                        data:{id:2,adminName:name,adminPassword:password},
+                        data:{id:id,adminName:name,adminPassword:password},
                         success:function (data) {
                             if(data.code == 0){
                                 layer.msg("修改成功！");
-                                setTimeout(function getTest(){
-                                    window.parent.location.reload();
-                                },1500);
+                                window.parent.location.reload();
                             }else{
                                 layer.msg("修改失败！");
                             }
@@ -225,9 +225,9 @@
                 }
 
             })
-
-
         });
+
+
     }
     $.ajax({
         url:url+'admin/getAdminList',

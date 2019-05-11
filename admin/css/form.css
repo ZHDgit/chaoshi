@@ -22,26 +22,26 @@ form{
 .table .deleteSpan{
     color: red;
 }
-.EditTable {
+.EditTable,.addTable {
     margin-top: 40px;
 }
-.EditTable tr{
+.EditTable tr,.addTable tr{
     height: 60px;
 }
-.EditTable th{
+.EditTable th,.addTable th{
     width: 5%;
 }
-.EditTable td{
+.EditTable td,.addTable td{
     text-align: left;
 }
-.EditTable input{
+.EditTable input,.addTable input{
     border: 0;
     width: 400px;
     height: 30px;
     border-radius: 4px;
     border: 1px solid cornflowerblue;
 }
-.EditDiv h1{
+.EditDiv h1 ,#addAdminDiv h1{
     height: 40px;
     background: #333;
     color: #fff;
@@ -52,7 +52,7 @@ form{
     justify-content: center;
 }
 .editTableSpan{
-
+    display: block;
     height: 30px;
     width: 80px;
     background: #333;

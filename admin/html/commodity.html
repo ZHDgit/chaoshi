@@ -98,7 +98,7 @@
         </div>
         <div class="m-middle">
             <form action="">
-                <table>
+                <table class="EditTable">
                     <tr>
                         <th>商品名称</th>
                         <td>
@@ -138,11 +138,13 @@
                         </td>
                     </tr>
                 </table>
-                <table style="margin-bottom: 40px">
+                <table style="margin:20px 0 40px 0">
                     <tr>
                         <td>
-                            <span style="margin-left: 360px" class="editTableSpan m-btn-cancel">返回</span>
-                            <span class="editTableSpan m-btn-sure">确定</span>
+                            <div class="operationDiv">
+                                <span class="editTableSpan" id="addUser">确定</span>
+                                <span class="layui-layer-close editTableSpan" style="margin-left: 40px;">返回</span>
+                            </div>
                         </td>
                     </tr>
                 </table>
@@ -151,7 +153,7 @@
 
     </div>
 </div>
-?</body>
+</body>
 <script>
     $.ajax({
         url:url+'goods/getGoodsList/0/0',
