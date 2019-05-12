@@ -300,7 +300,7 @@
 			success:function(data){
 				if(data.code === 0){
 					layer.msg('登录成功');
-					$.cookie('userName', name, { expires: 7 });
+					$.cookie('userName', name, { expires: 7 ,path:'/'});
 					setTimeout(function getTest(){
 						location.href = 'http://localhost:63342/chaoshi/index.html';
 					},1500);
