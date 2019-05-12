@@ -58,7 +58,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<div class="content">
 		<div class="contentLeft">
 			<ul>
-				<li>个人资料</li>
+				<li class="activeLi">个人资料</li>
 				<li>我的订单</li>
 				<li>修改密码</li>
 			</ul>
@@ -118,8 +118,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<input type="password">
 					</li>
 					<li>
-						<input type="button" value="确认" style="margin-left:160px;">
-						<input type="button" value="取消" style="margin-left:70px;">
+						<input type="button" class="checkbtn" value="确认" style="margin-left:200px;">
+						<!-- <input type="button" class="checkbtn" value="取消" style="margin-left:70px;"> -->
 					</li>
 				</ul>
 			</div>
@@ -254,6 +254,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script>
 	$(function(){ 
 		$(".contentLeft ul li").click(function() {
+			$(this).addClass('activeLi').siblings().removeClass('activeLi')
 			var idx = $(this).index()
 			$(".contentBox").eq(idx).show().siblings().hide()
 		})
