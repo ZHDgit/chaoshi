@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="./css/form.css">
     <script type="text/javascript" src="../layer/layer.js"></script>
     <script type="text/javascript" src="../myModal/js/jquery.my-modal.1.1.js"></script>
+    <script type="text/javascript" src="../js/jqueryform.js"></script>
+
 
 
     <style>
@@ -35,52 +37,78 @@
     </form>
     <div id="commodityEdit" class="userEdit EditDiv">
         <h1>添加商品</h1>
-        <form action="">
+        <form action="" id="addForm" method="post">
             <table class="EditTable">
+                <tr>
+                    <th>商品分类</th>
+                    <td>
+                        <select name="goodsCategory">
+                            <option value="6">水果</option>
+                            <option value="1">杂货</option>
+                            <option value="2">家用</option>
+                            <option value="3">个人护理</option>
+                            <option value="4">包装食品</option>
+                            <option value="5">饮料&酒水</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <th>商品类型</th>
+                    <td>
+                        <select name="goodsType">
+                            <option value="1">今日热卖</option>
+                            <option value="2">今日优惠</option>
+                            <option value="3">新品推荐</option>
+                        </select>
+                    </td>
+                </tr>
                 <tr>
                     <th>商品名称</th>
                     <td>
-                        <input type="text" value="zhnfgdada">
+                        <input type="text" name="goodsName">
                     </td>
                 </tr>
                 <tr>
                     <th>商品简介</th>
                     <td>
-                        <input type="text" value="这个东西很好">
+                        <input type="text" name="goodsIntroduce">
                     </td>
                 </tr>
                 <tr>
                     <th>原价（元）</th>
                     <td>
-                        <input type="text" value="123456789">
+                        <input type="text" name="goodsPrice">
                     </td>
                 </tr>
                 <tr>
                     <th>优惠价格（元）</th>
                     <td>
-                        <input type="text" value="123">
+                        <input type="text" name="goodsOfferPrice">
                     </td>
                 </tr>
                 <tr>
                     <th>数量</th>
 
                     <td>
-                        <input type="text" value="asjdfkljasdlfjafksdkjf;asd">
+                        <input type="text" name="goodsNum">
                     </td>
                 </tr>
                 <tr>
                     <th>图片</th>
 
                     <td>
-                        <input type="text" value="asjdfkljasdlfjafksdkjf;asd">
+                        <input type="text" name="goodsImage">
                     </td>
                 </tr>
             </table>
             <table style="margin-bottom: 40px">
                 <tr>
                     <td>
-                        <span style="margin-left: 360px" class="layui-layer-close editTableSpan">返回</span>
-                        <span class="editTableSpan">确定</span>
+                        <div class="operationDiv">
+                            <span class="editTableSpan" id="addTrue">确定</span>
+                            <span style="margin-left: 50px" class="layui-layer-close editTableSpan">返回</span>
+                        </div>
+
                     </td>
                 </tr>
             </table>
@@ -97,44 +125,66 @@
             <span class="m-modal-close">&times;</span>
         </div>
         <div class="m-middle">
-            <form action="">
-                <table class="EditTable">
+            <form action="" method="post" id="editF">
+                <table class="EditTable" id="EditTables">
+                    <tr>
+                        <th>商品分类</th>
+                        <td>
+                            <select name="goodsCategory" id="goodsCategoryS">
+                                <option value="1">杂货</option>
+                                <option value="2">家用</option>
+                                <option value="3">个人护理</option>
+                                <option value="4">包装食品</option>
+                                <option value="5">饮料&酒水</option>
+                                <option value="6">水果</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>商品类型</th>
+                        <td>
+                            <select name="goodsType" id="goodsTypeS">
+                                <option value="1">今日热卖</option>
+                                <option value="2">今日优惠</option>
+                                <option value="3">新品推荐</option>
+                            </select>
+                        </td>
+                    </tr>
                     <tr>
                         <th>商品名称</th>
                         <td>
-                            <input type="text" value="zhnfgdada">
+                            <input type="text" name="goodsName">
                         </td>
                     </tr>
                     <tr>
                         <th>商品简介</th>
                         <td>
-                            <input type="text" value="这个东西很好">
+                            <input type="text" name="goodsIntroduce">
                         </td>
                     </tr>
                     <tr>
                         <th>原价（元）</th>
                         <td>
-                            <input type="text" value="123456789">
+                            <input type="text" name="goodsPrice">
                         </td>
                     </tr>
                     <tr>
                         <th>优惠价格（元）</th>
                         <td>
-                            <input type="text" value="123">
+                            <input type="text" name="goodsOfferPrice">
                         </td>
                     </tr>
                     <tr>
                         <th>数量</th>
 
                         <td>
-                            <input type="text" value="asjdfkljasdlfjafksdkjf;asd">
+                            <input type="number" name="goodsNum">
                         </td>
                     </tr>
                     <tr>
                         <th>图片</th>
-
                         <td>
-                            <input type="text" value="asjdfkljasdlfjafksdkjf;asd">
+                            <input type="text" name="goodsImage">
                         </td>
                     </tr>
                 </table>
@@ -142,8 +192,8 @@
                     <tr>
                         <td>
                             <div class="operationDiv">
-                                <span class="editTableSpan" id="addUser">确定</span>
-                                <span class="layui-layer-close editTableSpan" style="margin-left: 40px;">返回</span>
+                                <button type="submit" class="editTableSpan" id="addC">确定</button>
+                                <span class="m-modal-close editTableSpan" style="margin-left: 50px;">返回</span>
                             </div>
                         </td>
                     </tr>
@@ -156,10 +206,9 @@
 </body>
 <script>
     $.ajax({
-        url:url+'goods/getGoodsList/0/0',
+        url:url+'goods/getGoodsList/0/0/1/100',
         type:'POST',
         success:function (data) {
-
             if (data.code == 0) {
                 var data = data.data;
                 var str = '<tr><th>商品名称</th><th>价格（元）</th><th>类别</th>><th>数量</th><th>管理</th></tr>';
@@ -180,11 +229,10 @@
                         str += '<td>水果</td>';
                     }
                     str += '<td>' + data[i].goodsNum + '</td>'+
-                    '<td><span class="editSpan">编辑</span><span class="deleteSpan">删除</span></td>';
-                    $('#commodityFrom table').html(str);
-                    edit();
-
+                    '<td><span class="editSpan" id="'+ data[i].id +'" style="margin-right: 10px">编辑</span><span class="deleteSpan" id="'+ data[i].id +'">删除</span></td>';
                 }
+                $('#commodityFrom table').html(str);
+                edit();
 
             }
         }
@@ -203,6 +251,17 @@
 
             }
         });
+        $('#addForm').attr('action',url+'goods/addGoods');
+        $('#addTrue').click(function () {
+            $("#addForm").ajaxSubmit(function () {
+                layer.msg("添加商品成功！");
+                setTimeout(function () {
+                    window.parent.location.reload();
+
+                },1500)
+            });
+            return false;
+        })
     });
     //修改商品
     function edit() {
@@ -210,8 +269,82 @@
             alert("你点击了确定");
         });
         $('.editSpan').on("click", function() {
+            var id = $(this).attr('id');
+            $.ajax({
+                url:url+'goods/getGoodsById/'+id,
+                type:'POST',
+                success:function (data) {
+                    if(data.code == 0){
+                        var data = data.data;
+                        if(data.goodsCategory == 1 || data.goodsCategory == ''){
+                            $('#goodsCategoryS option').eq(0).attr("selected");
+                        }else if(data.goodsCategory == 2){
+                            $('#goodsCategoryS option').eq(1).attr("selected");
+                        }else if(data.goodsCategory == 3){
+                            console.log($('#goodsCategoryS option').eq(2).text());
+                            $('#goodsCategoryS option').eq(2).attr("selected");
+                        }else if(data.goodsCategory == 4){
+                            console.log($('#goodsCategoryS option').eq(3));
+                            $('#goodsCategoryS option').eq(3).attr("selected");
+                        }else if(data.goodsCategory == 5){
+                            $('#goodsCategoryS option').eq(4).attr("selected");
+                        }else if(data.goodsCategory == 6){
+                            $('#goodsCategoryS option').eq(5).attr("selected");
+                        }
+                        if(data.goodsType == 1 || data.goodsType == ''){
+                            $('#goodsTypeS option').eq(0).attr("selected");
+                        }else if(data.goodsType == 2){
+                            $('#goodsTypeS option').eq(1).attr("selected");
+                        }else if(data.goodsType == 3){
+                            $('#goodsTypeS option').eq(2).attr("selected");
+                        }
+                        $('#EditTables input').eq(0).val(data.goodsName);
+                        $('#EditTables input').eq(1).val(data.goodsIntroduce);
+                        $('#EditTables input').eq(2).val(data.goodsPrice);
+                        $('#EditTables input').eq(3).val(data.goodsOfferPrice);
+                        $('#EditTables input').eq(4).val(data.goodsNum);
+                        $('#EditTables input').eq(5).val(data.goodsImage);
+                    }
+                }
+            });
             m1.show();
+            $('#editF').attr('action',url+'goods/updateGoods/'+id);
+            $('#addTrue').click(function () {
+                $("#addC").ajaxSubmit(function () {
+                    layer.msg("修改商品成功！");
+                    setTimeout(function () {
+                        window.parent.location.reload();
+                    },1500)
+                });
+                return false;
+            })
         });
+        //删除
+        $('.deleteSpan').click(function () {
+            var id = $(this).attr('id');
+            var _this = this;
+            layer.confirm('确定删除该商品吗？', {
+                title:'',
+                btn: ['确实','取消'] //按钮
+            }, function(){
+                $.ajax({
+                    url:url+'goods/deleteGoodsById/'+id,
+                    type:'POST',
+                    success:function (data) {
+                        if (data.code == 0) {
+                            $(_this).parent().parent().remove();
+                            layer.msg("删除商品成功！");
+                            setTimeout(function () {
+                                window.parent.location.reload();
+                            },1500)
+                        }
+                    }
+                })
+            }, function(){
+
+            });
+
+        })
     }
 
     //分页

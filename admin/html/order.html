@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../myModal/css/jquery.my-modal.1.1.winStyle.css">
+    <link rel="stylesheet" href="./css/form.css">
+    <script type="text/javascript" src="../layer/layer.js"></script>
+    <script type="text/javascript" src="../myModal/js/jquery.my-modal.1.1.js"></script>
+
+
+    <style>
+        .addCommodity{
+            float: right;
+            height: 40px;
+            line-height: 40px;
+            width: 140px;
+            background: #ccc;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-left: 60px;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <form action="" id="orderFrom">
+        <table class="table" style="margin: 0 auto;">
+
+        </table>
+    </form>
+</div>
+<div class="m-modal">
+    <div class="m-modal-dialog">
+        <div class="m-top">
+            <h4 class="m-modal-title">
+                查看订单
+            </h4>
+            <span class="m-modal-close">&times;</span>
+        </div>
+        <div class="m-middle">
+            <form action="" >
+                <p class="orderP orderActive" style="border-right: 1px solid #333" index="0">订单基本信息</p>
+                <p class="orderP" index="1">商品信息</p>
+                <div style="clear: both"></div>
+                <table class="orderTable">
+                    <tr>
+                        <th>购买用户</th>
+                        <td>
+                            <input type="text" value="张鸿" readonly>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>收货地址</th>
+                        <td>
+                            <input type="text" value="这个东西很好" readonly>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>收货电话</th>
+                        <td>
+                            <input type="text" value="199999" readonly>
+                        </td>
+                    </tr>
+                </table>
+                <table class="orderHiden orderTable" id="orderT">
+                    
+                    
+                </table>
+                <table style="margin:20px 0 40px 0">
+                    <tr>
+                        <td>
+                            <div class="operationDiv">
+                                <span class="m-modal-close editTableSpan">返回</span>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+
+    </div>
+</div>
+</body>
+<script>
+    $.ajax({
+        url:url+'order/getOrderList',
+        type:'POST',
+        success:function (data) {
+            if (data.code == 0) {
+                var data = data.data;
+                var str = '<tr><th>用户</th><th>收货地址</th><th>价格（元）</th><th>管理</th></tr>';
+                for (var i = 0; i < data.length; i++) {
+                    str += '<tr><td>张鸿</td>';
+                    str += '<td>' + data[i].address + '</td>'+
+                        '<td>' + data[i].price + '</td>'+
+                        '<td><span class="editSpan" id="' + data[i].id + '">查看</span></td>';
+                    $('#orderFrom table').html(str);
+                    edit();
+
+                }
+
+            }
+        }
+    })
+
+    //查看订单
+    function edit() {
+        var m1 = new MyModal.modal(function() {
+            alert("你点击了确定");
+        });
+        $('.editSpan').on("click", function() {
+            m1.show();
+            var id = $(this).attr('id');
+            $.ajax({
+                url:url+'order/getOrder/'+id,
+                type:'POST',
+                success:function (datas) {
+                    console.log(datas.data);
+                    if (datas.code == 0) {
+                        var data = datas.data;
+                        var str = '<tr><th style="width: 5%;">商品名称</th><th>单价（元）</th><th>数量</th><th>总价（元）</th></tr>';
+                        for (var i= 0;i<data.length;i++){
+                            let jin = data[i].goodsOfferPrice * data[i].num;
+                            str += '<tr><td>'+data[i].goodsName+'</td><td>'+data[i].goodsOfferPrice+'</td>' +
+                                '<td>'+data[i].num+'</td><td>'+jin+'</td></tr>'
+                        }
+                        $('#orderT').html(str);
+
+                    }
+                }
+            })
+        });
+        $('.orderP').click(function () {
+            var index = $(this).attr('index');
+            $(this).addClass('orderActive').siblings().removeClass('orderActive')
+            if(index == 1){
+                $('.orderTable').eq(0).hide();
+                $('.orderTable').eq(1).show();
+            }else{
+                $('.orderTable').eq(0).show();
+                $('.orderTable').eq(1).hide();
+            }
+        });
+
+    }
+
+    //分页
+
+</script>
+</html>
