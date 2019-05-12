@@ -996,13 +996,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script type="text/javascript">
 	$(function() {
 		$.ajax({
-			url: 'http://192.168.1.118:8082/goods/getGoodsList/0/0',
+			url: 'http://192.168.1.118:8082/goods/getGoodsList/0/0/1/6',
 			type: 'POST',
 			success: function(res) {
 				$('#item').tmpl(res.data).appendTo('#items');
-				paypal.minicart.render({
-					action: '#'
-				});
+				$(".button").click(function(){
+					let itemName = $(this).parent().find("input[name='item_name']").val();
+					let amount = $(this).parent().find("input[name='discount_amount']").val();
+					let data = {"item_name": itemName, "amount": amount, "currency_code": "USD" };
+					paypal.minicart.cart.add(data)
+					paypal.minicart.view.show() 
+					return false;
+				})
 			}
 		})
 	})
