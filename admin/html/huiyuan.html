@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../myModal/css/jquery.my-modal.1.1.winStyle.css">
+    <link rel="stylesheet" href="./css/form.css">
+    <script type="text/javascript" src="../layer/layer.js"></script>
+    <script type="text/javascript" src="../myModal/js/jquery.my-modal.1.1.js"></script>
+    <style>
+        .addAdmin{
+            float: right;
+            height: 40px;
+            line-height: 40px;
+            width: 140px;
+            background: #ccc;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-left: 60px;
+        }
+
+        .nameP{
+            position: absolute;
+            right: 84px;
+            top: 18px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <form action="" id="userFrom">
+        <table class="table" style="margin: 0 auto;">
+
+
+
+
+        </table>
+    </form>
+    <div id="pageId"></div>
+</div>
+</body>
+<script>
+
+    $.ajax({
+        url:url+'user/getUserList',
+        type:'POST',
+        success:function (data) {
+            if(data.code == 0){
+                var data = data.data;
+            var aa = '<th>会员总数：'+data.userAmount+'</th>'
+                var str = '<tr><th>用户名</th><th>邮箱</th></tr>';
+                for(var i = 0;i < data.userList.length;i++){
+                    str += '<tr><td>'+data.userList[i].userName+'</td>'+
+                        '<td>'+data.userList[i].userEmail+'</td>';
+                }
+                $('#userFrom table').html(str);
+                edit();
+            }else{
+                layer.msg('没有管理员数据呢！请点击添加按钮进行添加管理员！');
+
+            }
+        }
+    })
+
+
+</script>
+</html>

@@ -89,6 +89,10 @@
             $('.loginUserName').show();
            $('.loginUserName strong').text($.cookie('userName'));
             $('.login').hide();
+            $('.loginUserName strong').click(function () {
+                console.log(11111);
+                window.parent.location.href="personalCenter.html"
+            })
         }
         $('.loginUserName span').click(function () {
             $.cookie('userName','',{ expires: -1 });

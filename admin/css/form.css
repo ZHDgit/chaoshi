@@ -22,19 +22,19 @@ form{
 .table .deleteSpan{
     color: red;
 }
-.EditTable,.addTable {
+.EditTable,.addTable ,.orderTable{
     margin-top: 40px;
 }
-.EditTable tr,.addTable tr{
+.EditTable tr,.addTable tr,.orderTable tr{
     height: 60px;
 }
-.EditTable th,.addTable th{
-    width: 5%;
+.EditTable th,.addTable th,.orderTable th{
+    width: 10%;
 }
-.EditTable td,.addTable td{
+.EditTable td,.addTable td,.orderTable td{
     text-align: left;
 }
-.EditTable input,.addTable input{
+.EditTable input,.addTable input ,.orderTable input{
     border: 0;
     width: 400px;
     height: 30px;
@@ -53,14 +53,31 @@ form{
 }
 .editTableSpan{
     display: block;
+    position: static;
     height: 30px;
     width: 80px;
     background: #333;
     line-height: 30px;
     border-radius: 8px;
-    color: #fff;
+    color: #fff !important;
+    font-size: 14px !important;
+    cursor: pointer;
+    border: none;
+}
+.orderP{
+    width: 110px;
+    height: 30px;
+    background: #ccc;
+    line-height: 30px;
+    float: left;
     cursor: pointer;
 }
-.passwordTable{
-
+.orderHiden{
+    display: none;
+}
+.orderHiden th{
+    text-align: left;
+}
+.orderActive{
+    background: #d7a2a2;
 }

@@ -1411,6 +1411,7 @@ select#country,select#country1 {
 }
 .products-right-grids{
 	margin-bottom: 2em;
+    height: 2em;
 }
 .numbering{
 	text-align:right;
