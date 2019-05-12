@@ -1,0 +1,76 @@
+.content{
+    width: 1140px;
+    min-height: 400px;
+    margin: 0 auto;
+    padding: 30px 20px;
+    display: flex;
+    align-items: flex-start;
+}
+.contentLeft{
+    width: 300px;
+    overflow: hidden;
+    border: 1px solid #ccc;
+}
+.contentLeft ul li{
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    cursor: pointer;
+}
+.contentLeft ul li:hover{
+    color: #fe9126;
+}
+.contentRight{
+    width: 840px;
+    min-height: 400px;
+}
+.contentBox{
+    padding: 40px 100px;
+    display: block;
+}
+.checkbtn{
+    height: 30px;
+    padding: 0 10px;
+}
+.personInf{
+    float: left;
+    width: 50%;
+}
+.personInf ul, .contentBox ul{
+    list-style: none;
+}
+.personInf img{
+    width: 160px;
+    height: 160px;
+    float: right;
+}
+.contentBox table{
+    width: 100%;
+    border: 1px solid #ccc;
+    border-collapse: collapse;
+}
+.contentBox table th{
+    height: 60px;
+    text-align: center;
+    border: 1px solid #ccc;
+}
+.contentBox table td{
+    height: 80px;
+    text-align: center;
+    border: 1px solid #ccc;
+}
+.contentBox ul li{
+    display: block;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+.contentBox ul li span{
+    display: block;
+    float: left;
+    width: 140px;
+    text-align: right;
+    margin-right: 20px;
+}
+.contentBox ul li input{
+    float: left;
+}
