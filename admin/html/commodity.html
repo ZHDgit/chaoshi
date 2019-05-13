@@ -130,7 +130,7 @@
                     <tr>
                         <th>商品分类</th>
                         <td>
-                            <select name="goodsCategory" id="goodsCategoryS">
+                            <select name="goodsCategory" id="goodsCategoryS" autocomplete="off">
                                 <option value="1">杂货</option>
                                 <option value="2">家用</option>
                                 <option value="3">个人护理</option>
@@ -143,7 +143,7 @@
                     <tr>
                         <th>商品类型</th>
                         <td>
-                            <select name="goodsType" id="goodsTypeS">
+                            <select name="goodsType" id="goodsTypeS" autocomplete="off">
                                 <option value="1">今日热卖</option>
                                 <option value="2">今日优惠</option>
                                 <option value="3">新品推荐</option>
@@ -269,34 +269,34 @@
             alert("你点击了确定");
         });
         $('.editSpan').on("click", function() {
+            m1.show();
             var id = $(this).attr('id');
             $.ajax({
                 url:url+'goods/getGoodsById/'+id,
                 type:'POST',
-                success:function (data) {
-                    if(data.code == 0){
-                        var data = data.data;
-                        if(data.goodsCategory == 1 || data.goodsCategory == ''){
-                            $('#goodsCategoryS option').eq(0).attr("selected");
-                        }else if(data.goodsCategory == 2){
-                            $('#goodsCategoryS option').eq(1).attr("selected");
-                        }else if(data.goodsCategory == 3){
-                            console.log($('#goodsCategoryS option').eq(2).text());
-                            $('#goodsCategoryS option').eq(2).attr("selected");
-                        }else if(data.goodsCategory == 4){
-                            console.log($('#goodsCategoryS option').eq(3));
-                            $('#goodsCategoryS option').eq(3).attr("selected");
-                        }else if(data.goodsCategory == 5){
-                            $('#goodsCategoryS option').eq(4).attr("selected");
-                        }else if(data.goodsCategory == 6){
-                            $('#goodsCategoryS option').eq(5).attr("selected");
+                success:function (datas) {
+                    if(datas.code == 0){
+                        var data = datas.data;
+                        console.log(data.goodsCategory);
+                        if(data.goodsCategory === 1 || data.goodsCategory === ''){
+                            $('#goodsCategoryS option').eq(0).prop("selected",true);
+                        }else if(data.goodsCategory === 2){
+                            $('#goodsCategoryS option').eq(1).prop("selected",true);
+                        }else if(data.goodsCategory === 3){
+                            $('#goodsCategoryS option').eq(2).prop("selected",true);
+                        }else if(data.goodsCategory === 4){
+                            $('#goodsCategoryS option').eq(3).prop("selected",true);
+                        }else if(data.goodsCategory === 5){
+                            $('#goodsCategoryS option').eq(4).prop("selected",true);
+                        }else if(data.goodsCategory === 6){
+                            $('#goodsCategoryS option').eq(5).prop("selected",true);
                         }
-                        if(data.goodsType == 1 || data.goodsType == ''){
-                            $('#goodsTypeS option').eq(0).attr("selected");
-                        }else if(data.goodsType == 2){
-                            $('#goodsTypeS option').eq(1).attr("selected");
-                        }else if(data.goodsType == 3){
-                            $('#goodsTypeS option').eq(2).attr("selected");
+                        if(data.goodsType === 1 || data.goodsType === ''){
+                            $('#goodsTypeS option').eq(0).prop("selected",true);
+                        }else if(data.goodsType === 2){
+                            $('#goodsTypeS option').eq(1).prop("selected",true);
+                        }else if(data.goodsType === 3){
+                            $('#goodsTypeS option').eq(2).prop("selected",true);
                         }
                         $('#EditTables input').eq(0).val(data.goodsName);
                         $('#EditTables input').eq(1).val(data.goodsIntroduce);
@@ -307,7 +307,7 @@
                     }
                 }
             });
-            m1.show();
+
             $('#editF').attr('action',url+'goods/updateGoods/'+id);
             $('#addTrue').click(function () {
                 $("#addC").ajaxSubmit(function () {

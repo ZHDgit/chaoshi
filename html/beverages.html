@@ -286,7 +286,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			
 		});
 		$.ajax({
-			url: 'http://192.168.1.118:8082/goods/getGoodsList/5/1/1/9',
+			url: url+'goods/getGoodsList/5/1/1/9',
 			type: 'POST',
 			success: function(res) {
 				$('#item').tmpl(res.data).appendTo('#items');

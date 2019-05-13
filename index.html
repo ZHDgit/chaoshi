@@ -417,7 +417,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	$(function() {
 		var tmp = 0;
 		$.ajax({
-			url: 'http://192.168.1.118:8082/goods/getGoodsList/1/2/1/6',
+			url: url+'goods/getGoodsList/1/2/1/6',
 			type: 'POST',
 			success: function(res) {
 				$('#item').tmpl(res.data).appendTo('#items');
@@ -428,7 +428,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			}
 		})
 		$.ajax({
-			url: 'http://192.168.1.118:8082/goods/getGoodsList/2/2/1/6',
+			url: url+'goods/getGoodsList/2/2/1/6',
 			type: 'POST',
 			success: function(res) {
 				$('#item').tmpl(res.data).appendTo('#item1');
@@ -439,7 +439,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			}
 		})
 		$.ajax({
-			url: 'http://192.168.1.118:8082/goods/getGoodsList/3/2/1/6',
+			url: url+'goods/getGoodsList/3/2/1/6',
 			type: 'POST',
 			success: function(res) {
 				$('#item').tmpl(res.data).appendTo('#item2');
