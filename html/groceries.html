@@ -311,8 +311,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				$(".button").click(function(){
 					let itemName = $(this).parent().find("input[name='item_name']").val();
 					let amount = $(this).parent().find("input[name='discount_amount']").val();
-					let id = $(this).parent().find("input[name='business']").val();
-					let data = {"item_name": itemName, "amount": amount, "currency_code": "USD","discount":id};
+					let id = $(this).parent().find("input[name='business']").val();;
+					let data = {"item_name": itemName, "amount": amount, "currency_code": "USD","discount":id}
 					paypal.minicart.cart.add(data)
 					paypal.minicart.view.show()
 					return false;

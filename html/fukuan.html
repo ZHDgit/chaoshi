@@ -121,6 +121,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <div class="agileits_w3layouts_map_pos1">
                     <h3>欢迎结算</h3>
                     <p>感谢您选择我们的商品</p>
+                    <p>请填写收货地址</p>
+                    <p>地址:</p><input type="text" value="陕西西安培华学院" class="inputAdds" style="width: 100%;"/>
+                    <p>联系电话:</p><input type="text" value="17629192075" class="inputPhone" style="width: 100%;"/>
                     <ul class="wthree_contact_info_address">
                         <li>您一共消费：<span class="amountMoney" style="font-size: 26px;color: #ff6c00;margin-right: 4px"></span>元</li>
                         <li><p class="moneyBtn" style="width: 100%;text-align: center;background: #fff;color: #333;cursor: pointer;height: 34px;line-height: 34px">结算</p></li>
@@ -256,8 +259,38 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             return null; //返回参数值
         };
         var money = getUrlParam("money");
+
+
         $('.amountMoney').text(money);
         $('.moneyBtn').click(function () {
+                if(!(/^1(3|4|5|7|8)\d{9}$/.test($('.inputPhone').val()))){
+                    layer.msg('手机号输入错误，请重新输入！')
+                    return false;
+                }else if($('.inputAdds').val() === ''){
+                    layer.msg('地址错误，请重新输入！')
+                    return false;
+                }else{
+                    var datas = paypal.minicart.cart.items();
+                    console.log(paypal.minicart.cart.items()[0]._data);
+                    var str ='';
+                    for(var i=0;i<datas.length;i++){
+                        str += 'goodsIds='+datas[i]._data.discount+'-'+datas[i]._data.quantity+'&';
+                    }
+                    console.log(str);
+                    $.ajax({
+                        url:url+'order/addOrder?'+str+'phone='+$('.inputPhone').val()+'&address='+$('.inputAdds').val()+'&price='+money,
+                        type:'POST',
+                        success:function (data) {
+                            if (data.code == 0) {
+                                layer.msg('下单成功');
+                                paypal.minicart.cart.destroy();
+                                setTimeout(function getTest(){
+                                    location.href = 'http://localhost:63342/chaoshi/index.html';
+                                },1500);
+                            }
+                        }
+                    })
+                }
             layer.open({
                 type: 1,
                 shade: 0.5,
@@ -269,9 +302,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                 }
             });
-            var datas = paypal.minicart.cart.items();
-            console.log(paypal.minicart.cart.items());
-
         });
         $('#moneyDiv').hide();
     });

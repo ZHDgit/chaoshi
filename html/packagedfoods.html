@@ -262,7 +262,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<fieldset>
 									<input type="hidden" name="cmd" value="_cart" />
 									<input type="hidden" name="add" value="1" />
-									<input type="hidden" name="business" value=" " />
+									<input type="hidden" name="business" value="${id}" />
 									<input type="hidden" name="item_name" value="${goodsName}" />
 									<input type="hidden" name="amount" value="${goodsPrice}" />
 									<input type="hidden" name="discount_amount" value="${goodsOfferPrice}" />
@@ -296,9 +296,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				$(".button").click(function(){
 					let itemName = $(this).parent().find("input[name='item_name']").val();
 					let amount = $(this).parent().find("input[name='discount_amount']").val();
-					let data = {"item_name": itemName, "amount": amount, "currency_code": "USD" };
-					paypal.minicart.cart.add(data)
-					paypal.minicart.view.show()
+					let id = $(this).parent().find("input[name='business']").val();
+					let data = {"item_name": itemName, "amount": amount, "currency_code": "USD","discount":id};
+					paypal.minicart.cart.add(data);
+					paypal.minicart.view.show();
 					return false;
 				})
 			}
