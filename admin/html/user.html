@@ -20,7 +20,7 @@
             margin-left: 60px;
         }
 
-         .nameP{
+         .nameP,.ediNameP{
              position: absolute;
              right: 84px;
              top: 18px;
@@ -34,7 +34,7 @@
     </div>
     <div id="addAdminDiv">
         <h1>添加管理员</h1>
-        <form action="http://192.168.1.6:8082/admin/addAdmin" id="addAdminForm" method="post">
+        <form action="" id="addAdminForm" method="post">
             <table class="addTable">
                 <tr>
                     <th>用户名</th>
@@ -90,8 +90,10 @@
                         <table class="EditTable">
                             <tr>
                                 <th>用户名</th>
-                                <td>
-                                    <input type="text" value="">
+                                <td style="position: relative">
+                                    <p style="color: red;" class="ediNameP">用户名重复！</p>
+                                    <p style="color: green;margin-right: 20px;" class="ediNameP">√</p>
+                                    <input type="text" value="" id="ediName">
                                 </td>
                             </tr>
                             <tr>
@@ -201,30 +203,49 @@
         $('.editSpan').on("click", function() {
             m1.show();
             var id = $(this).attr('id');
-            $('.editTableSpanTrue').click(function () {
-                var name = $('.EditTable input').eq(0).val();
-                console.log(id);
-                var password = $('.EditTable input').eq(1).val();
-                console.log(password);
-                if(name != null && password != null){
-                    $.ajax({
-                        url:url+'admin/updateAdmin',
-                        type:'POST',
-                        data:{id:id,adminName:name,adminPassword:password},
-                        success:function (data) {
-                            if(data.code == 0){
-                                layer.msg("修改成功！");
-                                window.parent.location.reload();
-                            }else{
-                                layer.msg("修改失败！");
-                            }
+            $('#ediName').blur(function () {
+                var name = $(this).val();
+                $.ajax({
+                    url:url+'admin/checkAdminName/'+name,
+                    type:'POST',
+                    success:function (data) {
+                        if(data.code == 0){
+                            $('.ediNameP').eq(0).hide();
+                            $('.ediNameP').eq(1).show();
+                            ediName();
+                        }else{
+                            layer.msg("已有该名字！");
+                            $('.ediNameP').eq(0).show();
+                            $('.ediNameP').eq(1).hide();
                         }
-                    })
-                }else{
-                    layer.msg("请正确输入！")
-                }
-
+                    }
+                })
             })
+            function ediName(){
+                $('.editTableSpanTrue').click(function () {
+                    var name = $('.EditTable input').eq(0).val();
+                    var password = $('.EditTable input').eq(1).val();
+                    if(name != null && password != null){
+                        $.ajax({
+                            url:url+'admin/updateAdmin',
+                            type:'POST',
+                            data:{id:id,adminName:name,adminPassword:password},
+                            success:function (data) {
+                                if(data.code == 0){
+                                    layer.msg("修改成功！");
+                                    window.parent.location.reload();
+                                }else{
+                                    layer.msg("修改失败！");
+                                }
+                            }
+                        })
+                    }else{
+                        layer.msg("请正确输入！")
+                    }
+
+                })
+            }
+
         });
 
 
@@ -244,16 +265,46 @@
                     }else{
                         str += '<td>普通管理员</td>';
                     }
-                    str += '<td><span class="editSpan" id="'+data[i].id+'" style="margin-right: 10px">编辑</span><span class="deleteSpan">删除</span></td>';
+                    str += '<td><span class="editSpan" id="'+data[i].id+'" style="margin-right: 10px">编辑</span><span class="deleteSpan" delectId="'+data[i].id+'">删除</span></td>';
                 }
                 $('#userFrom table').html(str);
                 edit();
+                del();
             }else{
                 layer.msg('没有管理员数据呢！请点击添加按钮进行添加管理员！');
 
             }
         }
     })
+    //删除
+    function del(){
+        $('.deleteSpan').click(function () {
+            var id = $(this).attr('delectId');
+            var _this = this;
+            layer.confirm('确定删除该管理员吗？', {
+                title:'',
+                btn: ['确实','取消'] //按钮
+            }, function(){
+                $.ajax({
+                    url:url+'admin/deleteAdmin/'+id,
+                    type:'POST',
+                    success:function (data) {
+                        if (data.code == 0) {
+                            $(_this).parent().parent().remove();
+                            layer.msg("删除管理员成功！");
+                            setTimeout(function () {
+                                window.parent.location.reload();
+                            },1500)
+                        }
+                    }
+                })
+            }, function(){
+
+            });
+
+        })
+    }
+
 
 
 </script>

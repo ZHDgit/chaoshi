@@ -81,7 +81,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <th>优惠价格（元）</th>
+                    <th>现价（元）</th>
                     <td>
                         <input type="text" name="goodsOfferPrice">
                     </td>
@@ -169,7 +169,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <th>优惠价格（元）</th>
+                        <th>现价（元）</th>
                         <td>
                             <input type="text" name="goodsOfferPrice">
                         </td>
@@ -309,8 +309,8 @@
             });
 
             $('#editF').attr('action',url+'goods/updateGoods/'+id);
-            $('#addTrue').click(function () {
-                $("#addC").ajaxSubmit(function () {
+            $('#addC').click(function () {
+                $("#editF").ajaxSubmit(function () {
                     layer.msg("修改商品成功！");
                     setTimeout(function () {
                         window.parent.location.reload();
@@ -341,7 +341,7 @@
                     }
                 })
             }, function(){
-
+                layer.msg("删除商品失败！");
             });
 
         })

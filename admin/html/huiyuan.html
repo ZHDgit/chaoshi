@@ -30,6 +30,7 @@
 </head>
 <body>
 <div>
+    <p style="float: right;height: 32px;line-height: 32px;background: #ccc;padding: 4px;">会员数：<span style="color:red;font-size: 28px;" id="userNumber">--</span></p>
     <form action="" id="userFrom">
         <table class="table" style="margin: 0 auto;">
 
@@ -48,6 +49,7 @@
         type:'POST',
         success:function (data) {
             if(data.code == 0){
+                $('#userNumber').text(data.data.userAmount);
                 var data = data.data;
             var aa = '<th>会员总数：'+data.userAmount+'</th>'
                 var str = '<tr><th>用户名</th><th>邮箱</th></tr>';
@@ -56,6 +58,7 @@
                         '<td>'+data.userList[i].userEmail+'</td>';
                 }
                 $('#userFrom table').html(str);
+
                 edit();
             }else{
                 layer.msg('没有管理员数据呢！请点击添加按钮进行添加管理员！');

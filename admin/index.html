@@ -60,7 +60,7 @@
                 $('.loginUserName').text($.cookie('adminName'));
             }
             $('.signOut').click(function () {
-                $.cookie('adminName','',{ expires: -1 });
+                $.cookie('adminName','',{ expires: -1 ,path: '/'});
                 location.href = "./html/login.html";
             })
          });

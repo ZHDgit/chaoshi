@@ -48,7 +48,7 @@
         .loginUserName strong{
             font-size: 1em;
             text-transform: capitalize;
-            color: blue;
+            color: #fbac18;;
             text-decoration: none;
         }
         .loginUserName span{
@@ -95,7 +95,7 @@
             })
         }
         $('.loginUserName span').click(function () {
-            $.cookie('userName','',{ expires: -1 });
+            $.cookie('userName','',{ expires: -1 ,path: '/'});
             $('.loginUserName').hide();
             $('.login').show();
         })
